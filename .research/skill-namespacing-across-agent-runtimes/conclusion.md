@@ -50,3 +50,7 @@ High — primary official documentation consulted for all major tools. One ambig
 - Cursor, Windsurf, Copilot, or Codex adds explicit plugin namespacing or conflict resolution
 - A shared SKILL.md or plugin spec proposes a cross-runtime namespace standard
 - Claude Code plugin docs are updated to reflect the new short-form display behavior
+
+## Filed
+
+- https://github.com/anthropics/claude-code/issues/50486#issuecomment-4588493786 (2026-05-31) — comment on open issue requesting uniform prefix for skills. Position: current short-form-alias behavior is good DX; skill name conflicts are real but rare; if fuzzy search improves, remaining concerns dissolve. Prefixed display for consistency is reasonable as a secondary ask.

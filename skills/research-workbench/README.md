@@ -21,6 +21,7 @@ The skill standardizes:
 - structured evidence notes per topic
 - synthesis and change history per topic
 - `synthesis.md` as the default file consuming agents should read
+- a small scaffold script for new topic workspaces
 
 ## Install
 

@@ -27,8 +27,10 @@ assets/
   templates/
     topic.md
     synthesis.md
-    evidence.csv
+    evidence.md
     changes.md
+scripts/
+  new-topic.sh
 .plugin/
   plugin.json
 docs/
@@ -53,6 +55,7 @@ The first skill is [`research-workbench`](skills/research-workbench/README.md). 
 - record evidence and changes per topic
 - write durable topic notes and synthesis summaries per topic
 - consume research by reading `synthesis.md` first, then falling back only when needed
+- scaffold new topic workspaces with `scripts/new-topic.sh`
 
 ## Design direction
 

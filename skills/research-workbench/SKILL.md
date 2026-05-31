@@ -19,7 +19,7 @@ Use this skill when the work needs:
 ## Modes
 
 - **Author mode**: create or update topic workspaces, evidence, and source registries.
-- **Consumer mode**: read `synthesis.md` first. Read `topic.md`, `evidence.csv`, or `changes.md` only when the synthesis is insufficient, contested, or stale.
+- **Consumer mode**: read `synthesis.md` first. Read `topic.md`, `evidence.md`, or `changes.md` only when the synthesis is insufficient, contested, or stale.
 
 ## Storage Model
 
@@ -38,7 +38,7 @@ Do not collapse all research into one file.
 
 1. Define the question and scope before collecting sources.
 2. Check `docs/research/_sources/` for relevant canonical sources and note which source angles must be covered.
-3. Create or update `docs/research/<topic-slug>/topic.md`.
+3. Create a new topic directory with `bash scripts/new-topic.sh "<Topic Title>"` or update an existing one.
 4. Record evidence in `docs/research/<topic-slug>/evidence.md` as claims are gathered.
 5. Capture contradictions, weak evidence, and open questions explicitly.
 6. Write or refresh `docs/research/<topic-slug>/synthesis.md` when the findings are stable enough to summarize.

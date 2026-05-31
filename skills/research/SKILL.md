@@ -1,9 +1,13 @@
 ---
-name: research
-description: "Use this skill when doing grounded research in a repository and you want each topic to have a durable local workspace for investigation, evidence, conclusion, and change history."
+name: deep-research
+description: "Use this skill when the user explicitly asks for deep research, thorough investigation, or structured multi-source analysis on a topic — not for quick lookups or casual research requests."
+triggers:
+  - "deep research"
+  - "thorough research"
+  - "structured research"
 ---
 
-# Research Workbench
+# Deep Research Workbench
 
 Use the local repository as the durable research workspace.
 
@@ -13,7 +17,9 @@ Override it per repository by adding a line like `research_root: research` to `S
 
 ## When to use
 
-Use this skill when the work needs:
+Use this skill when the user asks for **deep research**, **thorough investigation**, or a **structured multi-source analysis**. Do not trigger for casual "research this" or quick lookup requests — those don't need the full workbench.
+
+Signs the full workbench is warranted:
 
 - durable source tracking rather than ephemeral browsing
 - cross-checking across multiple source types

@@ -1,14 +1,16 @@
-# research
+# deep-research
 
-Run grounded research in a repository with one durable workspace per topic and a conclusion-first consumption model.
+Run thorough, structured research in a repository with one durable workspace per topic and a conclusion-first consumption model.
 
 ## When to use
 
-Use this skill when you want an Obsidian-like research workflow, but the repository should be the system of record.
+Use this skill when you want a rigorous, multi-source research workflow where the repository is the system of record. Not for quick lookups — for deep investigation.
 
 Good triggers include:
 
-- "Research this topic and save the evidence locally"
+- "Do deep research on this topic"
+- "Deep research: what are the tradeoffs of X vs Y?"
+- "Thorough investigation of Z and save the results"
 - "Set up a reusable source registry"
 - "Cross-check sources before writing a conclusion"
 

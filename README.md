@@ -21,14 +21,14 @@ The normal workflow is:
 
 1. Install the skill with `npx skills add cyberuni/research --skill research`
 2. Open your own repository in Claude Code, Cursor, Codex, or another agent
-3. Ask the agent to use the `research` skill
+3. Ask the agent to do deep research on a topic
 4. Commit the resulting files in your repo, including any installed skill files under `.agents/`
 
 Example prompts:
 
-- `Use the research skill to set up research for this topic`
-- `Create a new research topic workspace for this repo`
-- `Use the research workflow and save the evidence locally`
+- `Do deep research on this topic`
+- `Deep research: what are the tradeoffs of X vs Y?`
+- `Thorough investigation of Z and save the results`
 
 ## Installed layout in a consuming project
 
@@ -98,7 +98,7 @@ Important distinction:
 
 ## Primary skill
 
-The first skill is [`research`](skills/research/README.md). It defines how to:
+The first skill is [`deep-research`](skills/research/README.md). It defines how to:
 
 - plan research before collecting material
 - maintain a canonical source registry

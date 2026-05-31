@@ -28,7 +28,9 @@ Use this skill when the work needs:
 
 ### Choosing the mode
 
-Start in **Draft mode** unless any of these are true:
+Use **Consumer mode** when the user is asking about or referencing existing research (e.g., "what did we find about X?", "summarize the conclusion on Y", "is there prior research on Z?").
+
+Otherwise, start in **Draft mode** unless any of these are true:
 - The user explicitly asks to save or store the research.
 - The research scope is broad enough that it will clearly span multiple sessions.
 

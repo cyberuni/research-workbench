@@ -1,5 +1,5 @@
 ---
-name: research-workbench
+name: research
 description: "Use this skill when doing grounded research in a repository and you want each topic to have a durable local workspace for investigation, evidence, conclusion, and change history."
 ---
 

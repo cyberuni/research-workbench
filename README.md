@@ -1,10 +1,10 @@
-# research-workbench
+# research
 
 Repo-backed research workflows and skills for grounded, durable investigation.
 
 ## What this is
 
-`research-workbench` is a public skill repo for teams that want an Obsidian-like research workflow, but with the local repository as the source of truth.
+`research` is a public skill repo for teams that want an Obsidian-like research workflow, but with the local repository as the source of truth.
 
 It separates:
 
@@ -19,22 +19,22 @@ Most users do not work in this repository directly.
 
 The normal workflow is:
 
-1. Install the skill with `npx skills add cyberuni/research-workbench --skill research-workbench`
+1. Install the skill with `npx skills add cyberuni/research --skill research`
 2. Open your own repository in Claude Code, Cursor, Codex, or another agent
-3. Ask the agent to use the `research-workbench` skill
+3. Ask the agent to use the `research` skill
 4. Commit the resulting files in your repo, including any installed skill files under `.agents/`
 
 Example prompts:
 
-- `Use the research-workbench skill to set up research for this topic`
+- `Use the research skill to set up research for this topic`
 - `Create a new research topic workspace for this repo`
-- `Use the research-workbench workflow and save the evidence locally`
+- `Use the research workflow and save the evidence locally`
 
 ## Installed layout in a consuming project
 
 When a team installs this skill project-scoped, the canonical install location is:
 
-- `.agents/skills/research-workbench/`
+- `.agents/skills/research/`
 
 That installed skill directory can include sibling files and folders such as:
 
@@ -46,7 +46,7 @@ That installed skill directory can include sibling files and folders such as:
 - `SKILL.project.md`
 - `SKILL.local.md`
 
-If the root `skills/research-workbench` path exists in the consuming repo, it should be treated as a compatibility symlink back to `.agents/skills/research-workbench/`, not as the source of truth.
+If the root `skills/research` path exists in the consuming repo, it should be treated as a compatibility symlink back to `.agents/skills/research/`, not as the source of truth.
 
 Project installs may also write:
 
@@ -58,7 +58,7 @@ This repository itself is the source repo that users install from. Its authored 
 
 ```text
 skills/
-  research-workbench/
+  research/
     SKILL.md
     README.md
     governances/
@@ -94,18 +94,18 @@ Important distinction:
 - In the source repo, public skills are authored under `skills/`
 - In a consuming repo, installed skills live under `.agents/skills/`
 - `governances/`, `assets/`, and `scripts/` live inside the skill directory so they are distributed together with the skill
-- When installed in a consuming repo, these files land at `.agents/skills/research-workbench/governances/`, `assets/`, and `scripts/`
+- When installed in a consuming repo, these files land at `.agents/skills/research/governances/`, `assets/`, and `scripts/`
 
 ## Primary skill
 
-The first skill is [`research-workbench`](skills/research-workbench/README.md). It defines how to:
+The first skill is [`research`](skills/research/README.md). It defines how to:
 
 - plan research before collecting material
 - maintain a canonical source registry
 - record evidence and changes per topic
 - write durable topic notes and conclusion documents per topic
 - consume research by reading `conclusion.md` first, then falling back only when needed
-- scaffold new topic workspaces with `skills/research-workbench/scripts/new-topic.sh`
+- scaffold new topic workspaces with `skills/research/scripts/new-topic.sh`
 
 ## Design direction
 

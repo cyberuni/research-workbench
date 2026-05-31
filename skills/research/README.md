@@ -1,4 +1,4 @@
-# research-workbench
+# research
 
 Run grounded research in a repository with one durable workspace per topic and a conclusion-first consumption model.
 
@@ -26,5 +26,5 @@ The skill standardizes:
 ## Install
 
 ```bash
-npx skills add cyberuni/research-workbench --skill research-workbench
+npx skills add cyberuni/research --skill research
 ```

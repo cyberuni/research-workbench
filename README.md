@@ -57,50 +57,6 @@ Project installs may also write:
 
 - `.agents/cyber-skills-lock.json`
 
-## Source repo layout
-
-This repository itself is the source repo that users install from. Its authored layout looks like this:
-
-```text
-skills/
-  deep-research/
-    SKILL.md
-    README.md
-    governances/
-      research-layout.md
-      research-conclusion.md
-      research-evidence.md
-      research-sources.md
-    assets/
-      templates/
-        topic.md
-        conclusion.md
-        evidence.md
-        changes.md
-    scripts/
-      new-topic.sh
-.plugin/
-  plugin.json
-.research/
-  README.md
-  _sources/
-    README.md
-    canonical-sources.md
-  <topic-slug>/
-    topic.md
-    conclusion.md
-    evidence.md
-    changes.md
-```
-
-Important distinction:
-
-- In the source repo, public skills are authored under `skills/`
-- In a consuming repo, installed skills live under `.agents/skills/`
-- Research artifacts default to `.research/` in the consuming repo and can be overridden per repo
-- `governances/`, `assets/`, and `scripts/` live inside the skill directory so they are distributed together with the skill
-- When installed in a consuming repo, these files land at `.agents/skills/deep-research/governances/`, `assets/`, and `scripts/`
-
 ## Primary skill
 
 The first skill is [`deep-research`](skills/deep-research/README.md). It defines how to:

@@ -12,10 +12,10 @@ This repository defines reusable research workflows that store durable artifacts
 
 Keep the distinction clear:
 
-- `skills/research/` contains the skill and all its supporting files
-- `skills/research/governances/` contains shared research contracts
-- `skills/research/assets/templates/` contains reusable topic file templates
-- `skills/research/scripts/` contains helper scripts
+- `skills/deep-research/` contains the skill and all its supporting files
+- `skills/deep-research/governances/` contains shared research contracts
+- `skills/deep-research/assets/templates/` contains reusable topic file templates
+- `skills/deep-research/scripts/` contains helper scripts
 - `.research/_sources/` contains long-lived source registries
 - `.research/<topic-slug>/` contains one topic's research workspace: investigation, conclusion, evidence, and change history
 

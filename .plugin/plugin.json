@@ -3,6 +3,6 @@
   "version": "0.1.0",
   "description": "Repo-backed grounded research workflows and skills with topic-centric workspaces and conclusion-first consumption.",
   "skills": "./skills/",
-  "governances": "./skills/research/governances/",
-  "assets": "./skills/research/assets/"
+  "governances": "./skills/deep-research/governances/",
+  "assets": "./skills/deep-research/assets/"
 }

@@ -34,7 +34,7 @@ Example prompts:
 
 When a team installs this skill project-scoped, the canonical install location is:
 
-- `.agents/skills/research/`
+- `.agents/skills/deep-research/`
 
 That installed skill directory can include sibling files and folders such as:
 
@@ -46,7 +46,7 @@ That installed skill directory can include sibling files and folders such as:
 - `SKILL.project.md`
 - `SKILL.local.md`
 
-If the root `skills/research` path exists in the consuming repo, it should be treated as a compatibility symlink back to `.agents/skills/research/`, not as the source of truth.
+If the root `skills/deep-research` path exists in the consuming repo, it should be treated as a compatibility symlink back to `.agents/skills/deep-research/`, not as the source of truth.
 
 Project installs may also write:
 
@@ -94,18 +94,18 @@ Important distinction:
 - In a consuming repo, installed skills live under `.agents/skills/`
 - Research artifacts default to `.research/` in the consuming repo and can be overridden per repo
 - `governances/`, `assets/`, and `scripts/` live inside the skill directory so they are distributed together with the skill
-- When installed in a consuming repo, these files land at `.agents/skills/research/governances/`, `assets/`, and `scripts/`
+- When installed in a consuming repo, these files land at `.agents/skills/deep-research/governances/`, `assets/`, and `scripts/`
 
 ## Primary skill
 
-The first skill is [`deep-research`](skills/research/README.md). It defines how to:
+The first skill is [`deep-research`](skills/deep-research/README.md). It defines how to:
 
 - plan research before collecting material
 - maintain a canonical source registry
 - record evidence and changes per topic
 - write durable topic notes and conclusion documents per topic
 - consume research by reading `conclusion.md` first, then falling back only when needed
-- scaffold new topic workspaces with `skills/research/scripts/new-topic.sh`
+- scaffold new topic workspaces with `skills/deep-research/scripts/new-topic.sh`
 
 ## Design direction
 

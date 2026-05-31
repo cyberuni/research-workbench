@@ -1,13 +1,13 @@
 ---
 name: community-post
-description: "Use this skill when contributing a design proposal to an open-source community — research, draft with evidence, file."
+description: "Use this skill when you want to research a topic and produce a post as a durable artifact — GitHub issue, GitHub discussion, Discord message, Reddit/X post, or Asana task."
 ---
 
 # Community Post
 
 ## When to use
 
-When you have a design decision or architectural insight and want to contribute it upstream — as a GitHub issue, RFC, or discussion post — with evidence, community context, and counterarguments addressed.
+When you have something to say — a finding, proposal, question, or update — and want to back it with research before publishing. The post can go anywhere: a GitHub issue or discussion, a Discord channel, a social media post (Reddit, X), or an Asana task.
 
 ## Modes
 
@@ -23,19 +23,27 @@ Choose the mode by checking whether `.research/<topic-slug>/` exists and whether
 
 ### 1. Identify the primary venue
 
-Pick the repo where the standard is actively being *defined*, not where it is discussed in aggregate. Filing in a spec repo is more impactful than filing in a community forum or issue tracker that explicitly defers decisions elsewhere.
+Pick the venue where the audience who can act on this post actually is. Common choices:
 
-Signal for the right venue: maintainers there are empowered to merge normative spec changes based on the issue.
+| Goal | Venue |
+| --- | --- |
+| Bug report, feature request, spec change | GitHub issue in the relevant repo |
+| Open-ended design question, RFC | GitHub discussion |
+| Real-time community dialogue | Discord channel |
+| Public awareness, broader audience | Reddit or X |
+| Internal task or decision record | Asana task |
+
+If the topic spans multiple venues, pick one as primary and cross-reference from the others after the primary is live.
 
 ### 2. Research existing discussions
 
-Search the target repo and related community repos for prior issues, PRs, and threads on the same topic. For each find, record:
+Search the venue and related sources for prior posts, issues, threads, or discussions on the same topic. For each find, record:
 
-- Issue/PR number and URL
-- Author handle (for `@mention` later)
-- The core claim or proposal
-- Current status (open, closed, merged, stalled)
-- Whether it agrees with, partially overlaps with, or contradicts your proposal
+- URL or reference
+- Author handle (for `@mention` where the platform supports it)
+- The core claim or position
+- Current status (open, closed, resolved, stalled)
+- Whether it agrees with, partially overlaps with, or contradicts your post
 
 Aim for 3–5 direct prior-art references. Stop when additional searches return nothing new.
 
@@ -98,6 +106,9 @@ Check:
 
 ### 8. File
 
+Use the appropriate command or interface for the chosen venue:
+
+**GitHub issue:**
 ```bash
 gh issue create \
   --repo <org>/<repo> \
@@ -108,13 +119,22 @@ BODY
 )"
 ```
 
-Capture the URL from stdout and update `conclusion.md` with a link to the live issue under a `## Filed` section.
+**GitHub discussion:**
+```bash
+gh api graphql -f query='mutation { createDiscussion(...) { discussion { url } } }'
+```
+
+**Asana task:** Use the Asana MCP tools to create a task with the post body as the description.
+
+**Discord / Reddit / X:** Draft the post body, then paste manually or via the relevant API/MCP tool.
+
+Capture the URL or reference and update `conclusion.md` with a link to the live post under a `## Filed` section.
 
 ## Anti-patterns
 
-- **Filing in the discussion forum instead of the spec repo** — gets acknowledged but never acted on.
-- **Listing objections without addressing them** — makes the proposal look incomplete; maintainers will raise them in comments anyway.
+- **Posting to a venue where the audience can't act** — pick the place where the people who matter are present.
+- **Listing objections without addressing them** — makes the post look incomplete; readers will raise them anyway.
 - **"Position 1 / Position 2" headings** — sounds like a formal debate brief; use "Idea 1 / Idea 2" instead.
-- **Ending with demands** — "the spec MUST add this" closes the conversation; "I'd love to see this clarified" opens it.
-- **Skipping the prior art section** — wastes maintainer time and signals you haven't read the existing discussions.
-- **Cross-posting to multiple venues simultaneously** — pick the primary venue; cross-reference from secondary venues after the primary issue is live.
+- **Ending with demands** — "this MUST change" closes the conversation; "I'd love to see this clarified" opens it.
+- **Skipping the prior art section** — wastes reader time and signals you haven't done the homework.
+- **Cross-posting to multiple venues simultaneously** — pick the primary venue; cross-reference from secondary venues after the primary post is live.

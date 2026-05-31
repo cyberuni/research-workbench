@@ -4,9 +4,11 @@ Repo-backed research workflows and skills for grounded, durable investigation.
 
 ## What this is
 
-This is a public skill repo that ships the `deep-research` skill — a structured, multi-source research workflow that uses the local repository as the source of truth.
+This is a public skill repo that ships the `deep-research` skill — a structured, multi-source research workflow for agents.
 
-It separates:
+By default the skill works in draft mode: results are shown inline and nothing is written to disk unless the user confirms. When saved, research artifacts land in `.research/` in the consuming repo.
+
+The skill separates:
 
 - durable source registries
 - topic-specific research workspaces
@@ -31,7 +33,7 @@ Open your repository in Claude Code, Cursor, Codex, or another agent and ask:
 - `Deep research: what are the tradeoffs of X vs Y?`
 - `Thorough investigation of Z and save the results`
 
-Commit the resulting files in your repo, including any installed skill files under `.agents/`.
+If the agent saves the research, commit the resulting files under `.research/`. The skill files under `.agents/` are committed once at install time and don't change per-research.
 
 ## Installed layout in a consuming project
 
@@ -108,7 +110,7 @@ The first skill is [`deep-research`](skills/deep-research/README.md). It defines
 - record evidence and changes per topic
 - write durable topic notes and conclusion documents per topic
 - consume research by reading `conclusion.md` first, then falling back only when needed
-- scaffold new topic workspaces with `skills/deep-research/scripts/new-topic.sh`
+- scaffold new topic workspaces with `.agents/skills/deep-research/scripts/new-topic.sh`
 
 ## Design direction
 

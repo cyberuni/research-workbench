@@ -1,6 +1,6 @@
 ---
 name: research-workbench
-description: "Use this skill when doing grounded research in a repository and you want each topic to have a durable local workspace for investigation, evidence, synthesis, and change history."
+description: "Use this skill when doing grounded research in a repository and you want each topic to have a durable local workspace for investigation, evidence, conclusion, and change history."
 ---
 
 # Research Workbench
@@ -14,21 +14,21 @@ Use this skill when the work needs:
 - durable source tracking rather than ephemeral browsing
 - cross-checking across multiple source types
 - structured notes that can be reviewed in git
-- a synthesis that can later support design, policy, or implementation decisions
+- a conclusion that can later support design, policy, or implementation decisions
 
 ## Modes
 
 - **Author mode**: create or update topic workspaces, evidence, and source registries.
-- **Consumer mode**: read `synthesis.md` first. Read `topic.md`, `evidence.md`, or `changes.md` only when the synthesis is insufficient, contested, or stale.
+- **Consumer mode**: read `conclusion.md` first. Read `topic.md`, `evidence.md`, or `changes.md` only when the conclusion is insufficient, contested, or stale.
 
 ## Storage Model
 
 Use these locations:
 
 - `docs/research/_sources/` for durable source registries and watchlists
-- `assets/templates/` for reusable topic file templates
+- `<skill-dir>/assets/templates/` for reusable topic file templates
 - `docs/research/<topic-slug>/topic.md` for the working investigation record
-- `docs/research/<topic-slug>/synthesis.md` for the current best consumable answer
+- `docs/research/<topic-slug>/conclusion.md` for the current best consumable answer
 - `docs/research/<topic-slug>/evidence.md` for structured claims, contradictions, and confidence
 - `docs/research/<topic-slug>/changes.md` for topic-specific update history
 
@@ -38,16 +38,16 @@ Do not collapse all research into one file.
 
 1. Define the question and scope before collecting sources.
 2. Check `docs/research/_sources/` for relevant canonical sources and note which source angles must be covered.
-3. Create a new topic directory with `bash scripts/new-topic.sh "<Topic Title>"` or update an existing one.
+3. Create a new topic directory with `bash <skill-dir>/scripts/new-topic.sh "<Topic Title>"` or update an existing one.
 4. Record evidence in `docs/research/<topic-slug>/evidence.md` as claims are gathered.
 5. Capture contradictions, weak evidence, and open questions explicitly.
-6. Write or refresh `docs/research/<topic-slug>/synthesis.md` when the findings are stable enough to summarize.
+6. Write or refresh `docs/research/<topic-slug>/conclusion.md` when the findings are stable enough to summarize.
 7. Append material changes to `docs/research/<topic-slug>/changes.md`.
 
-Load shared contracts from:
+Load shared contracts from the skill directory:
 
 - `governances/research-layout.md`
-- `governances/research-synthesis.md`
+- `governances/research-conclusion.md`
 - `governances/research-evidence.md`
 - `governances/research-sources.md`
 
@@ -65,7 +65,7 @@ Each topic should live in its own directory:
 ```text
 docs/research/<topic-slug>/
   topic.md
-  synthesis.md
+  conclusion.md
   evidence.md
   changes.md
 ```
@@ -125,9 +125,9 @@ Each evidence entry should capture:
 
 If a claim is later overturned or weakened, update the row rather than silently replacing the conclusion elsewhere.
 
-## Synthesis Rules
+## Conclusion Rules
 
-Each `synthesis.md` should state:
+Each `conclusion.md` should state:
 
 - the question being answered
 - the current verdict
@@ -138,7 +138,7 @@ Each `synthesis.md` should state:
 - where evidence is thin
 - what should be checked again later
 
-Treat `synthesis.md` as the main consumption surface. It should be a complete, condensed verdict of the research rather than a teaser that forces the reader into other files.
+Treat `conclusion.md` as the main consumption surface. It should be a complete, condensed verdict of the research rather than a teaser that forces the reader into other files.
 
 ## Change Log Rules
 
@@ -147,5 +147,5 @@ Each `changes.md` entry should capture:
 - date
 - what changed
 - why it changed
-- whether the synthesis changed materially
+- whether the conclusion changed materially
 - which evidence or source triggered the update

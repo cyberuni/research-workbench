@@ -4,5 +4,5 @@
 
 - Changed: created the initial topic workspace
 - Why: capture the architectural split decision criteria while designing the repo
-- Material synthesis change: yes
+- Material conclusion change: yes
 - Trigger: current design work in `cyberuni/research-workbench`

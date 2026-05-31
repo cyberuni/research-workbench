@@ -4,5 +4,5 @@
 
 - Changed: created the initial topic workspace
 - Why: seed the repo with the research thread that motivated its design
-- Material synthesis change: yes
+- Material conclusion change: yes
 - Trigger: current design work in `cyberuni/research-workbench`

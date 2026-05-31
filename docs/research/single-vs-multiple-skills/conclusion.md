@@ -1,4 +1,4 @@
-# Single vs Multiple Skills Synthesis
+# Single vs Multiple Skills Conclusion
 
 ## Question
 
@@ -6,7 +6,7 @@ When should a capability be one skill like `research-workbench` versus several s
 
 ## Verdict
 
-Use a single skill when the user intent, artifact model, and success criteria still form one coherent workflow. `research-workbench` is currently in that category. A user who wants to start research, update research, or consume a synthesis is still interacting with the same topic-centric workspace and the same underlying contracts.
+Use a single skill when the user intent, artifact model, and success criteria still form one coherent workflow. `research-workbench` is currently in that category. A user who wants to start research, update research, or consume a conclusion is still interacting with the same topic-centric workspace and the same underlying contracts.
 
 Split into multiple skills only when the workflows become independently reusable and trigger from different situations. A dedicated `consume-research` skill becomes justified if agent sessions regularly need to read and apply research without performing authoring steps. A `start-research` or `update-research` skill becomes justified when those workflows become deterministic enough to benefit from tighter instructions, scripts, or different acceptance criteria.
 

@@ -8,8 +8,9 @@ if [[ $# -lt 1 ]]; then
 fi
 
 TITLE="$1"
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-TEMPLATES_DIR="$ROOT_DIR/assets/templates"
+SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ROOT_DIR="$(git -C "$SKILL_DIR" rev-parse --show-toplevel)"
+TEMPLATES_DIR="$SKILL_DIR/assets/templates"
 RESEARCH_DIR="$ROOT_DIR/docs/research"
 
 SLUG="$(printf '%s' "$TITLE" \
@@ -32,7 +33,7 @@ fi
 
 mkdir -p "$TOPIC_DIR"
 cp "$TEMPLATES_DIR/topic.md" "$TOPIC_DIR/topic.md"
-cp "$TEMPLATES_DIR/synthesis.md" "$TOPIC_DIR/synthesis.md"
+cp "$TEMPLATES_DIR/conclusion.md" "$TOPIC_DIR/conclusion.md"
 cp "$TEMPLATES_DIR/evidence.md" "$TOPIC_DIR/evidence.md"
 cp "$TEMPLATES_DIR/changes.md" "$TOPIC_DIR/changes.md"
 

@@ -1,8 +1,8 @@
-# <Topic> Synthesis
+# <Topic> Conclusion
 
 ## Question
 
-<What question does this synthesis answer?>
+<What question does this conclusion answer?>
 
 ## Verdict
 
@@ -30,4 +30,4 @@
 
 ## Recheck triggers
 
-- <What would cause this synthesis to be revisited>
+- <What would cause this conclusion to be revisited>

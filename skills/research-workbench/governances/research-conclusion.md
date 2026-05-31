@@ -1,8 +1,8 @@
-# Research Synthesis
+# Research Conclusion
 
-`synthesis.md` is the default file consuming agents should read.
+`conclusion.md` is the default file consuming agents should read.
 
-Each `synthesis.md` must be a complete, condensed verdict of the research and should stand on its own for most readers.
+Each `conclusion.md` must be a complete, condensed verdict of the research and should stand on its own for most readers.
 
 Required sections:
 
@@ -15,4 +15,4 @@ Required sections:
 - thin evidence
 - recheck triggers
 
-Do not write `synthesis.md` as a teaser that requires opening `topic.md` to understand the result.
+Do not write `conclusion.md` as a teaser that requires opening `topic.md` to understand the result.

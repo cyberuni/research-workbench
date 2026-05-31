@@ -1,6 +1,6 @@
 # research-workbench
 
-Run grounded research in a repository with one durable workspace per topic and a synthesis-first consumption model.
+Run grounded research in a repository with one durable workspace per topic and a conclusion-first consumption model.
 
 ## When to use
 
@@ -19,8 +19,8 @@ The skill standardizes:
 - canonical source registries
 - one topic directory per research question
 - structured evidence notes per topic
-- synthesis and change history per topic
-- `synthesis.md` as the default file consuming agents should read
+- conclusion and change history per topic
+- `conclusion.md` as the default file consuming agents should read
 - a small scaffold script for new topic workspaces
 
 ## Install

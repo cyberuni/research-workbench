@@ -1,4 +1,4 @@
-# Great Research Agent Extensions Synthesis
+# Great Research Agent Extensions Conclusion
 
 ## Question
 
@@ -6,9 +6,9 @@ What makes a strong research-oriented agent extension or skill package for Claud
 
 ## Verdict
 
-A strong research agent extension should optimize first for durable, topic-centric research artifacts and a synthesis-first consumption model, then package that workflow as a skill or plugin. The critical design feature is not a complex pipeline but a reliable contract: each topic should expose a complete `synthesis.md` as the default read surface, with `topic.md`, `evidence.csv`, and `changes.md` available for traceability and updates.
+A strong research agent extension should optimize first for durable, topic-centric research artifacts and a conclusion-first consumption model, then package that workflow as a skill or plugin. The critical design feature is not a complex pipeline but a reliable contract: each topic should expose a complete `conclusion.md` as the default read surface, with `topic.md`, `evidence.csv`, and `changes.md` available for traceability and updates.
 
-The extension should keep reusable rules out of ad hoc skill prose. Shared layout, synthesis, evidence, and source-registry contracts belong in governances, while templates belong in assets. A neutral plugin manifest is useful early because it makes the package shape explicit without forcing tool-specific behavior.
+The extension should keep reusable rules out of ad hoc skill prose. Shared layout, conclusion, evidence, and source-registry contracts belong in governances, while templates belong in assets. A neutral plugin manifest is useful early because it makes the package shape explicit without forcing tool-specific behavior.
 
 ## Confidence
 
@@ -17,7 +17,7 @@ Medium
 ## Strongest support
 
 - `GRE-001` — topic-centric workspaces align better with screaming architecture than shared artifact buckets
-- `GRE-002` — synthesis-first consumption reduces agent reading cost and ambiguity
+- `GRE-002` — conclusion-first consumption reduces agent reading cost and ambiguity
 - `GRE-003` — shared research contracts are likely to be reused across multiple future skills
 
 ## Strongest counterevidence

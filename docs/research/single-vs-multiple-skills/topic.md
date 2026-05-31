@@ -42,7 +42,7 @@ Separate skills become useful when they:
 
 ### Shared contracts reduce the risk of over-splitting
 
-If future skills do emerge, shared governances for layout, synthesis, evidence, and sources allow them to stay consistent without copying rules into each skill.
+If future skills do emerge, shared governances for layout, conclusion, evidence, and sources allow them to stay consistent without copying rules into each skill.
 
 ### Pipelines and skillsets are evidence for splitting only when coordination overhead is real
 

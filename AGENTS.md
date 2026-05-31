@@ -12,11 +12,12 @@ This repository defines reusable research workflows that store durable artifacts
 
 Keep the distinction clear:
 
-- `skills/` contains reusable public skills
-- `governances/` contains shared research contracts that multiple skills should obey
-- `assets/templates/` contains reusable topic file templates
+- `skills/research-workbench/` contains the skill and all its supporting files
+- `skills/research-workbench/governances/` contains shared research contracts
+- `skills/research-workbench/assets/templates/` contains reusable topic file templates
+- `skills/research-workbench/scripts/` contains helper scripts
 - `docs/research/_sources/` contains long-lived source registries
-- `docs/research/<topic-slug>/` contains one topic's research workspace: investigation, synthesis, evidence, and change history
+- `docs/research/<topic-slug>/` contains one topic's research workspace: investigation, conclusion, evidence, and change history
 
 ## Authoring Rules
 
@@ -24,7 +25,7 @@ Keep the distinction clear:
 - Prefer markdown and plain text artifacts that are easy to diff and review.
 - Keep skill bodies agent-first and workflow-oriented.
 - Under `docs/research/`, topic directories are the primary user-facing unit. Shared infrastructure should recede behind `_sources/`.
-- `synthesis.md` is the default consumption surface for agents and humans. It should be complete enough to stand on its own for most reads.
+- `conclusion.md` is the default consumption surface for agents and humans. It should be complete enough to stand on its own for most reads.
 - Do not treat `docs/research/` as scratch space; durable work belongs there only when it is useful to revisit or cross-check later.
 - When a skill defines a template or file structure, keep the skill concise and put reusable examples in repository files.
 

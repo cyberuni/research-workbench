@@ -11,7 +11,7 @@ It separates:
 - durable source registries
 - topic-specific research workspaces
 - structured evidence per topic
-- synthesis documents per topic that inform decisions and agent consumption
+- conclusion documents per topic that inform decisions and agent consumption
 
 ## How users use this repo
 
@@ -59,19 +59,21 @@ This repository itself is the source repo that users install from. Its authored 
 ```text
 skills/
   research-workbench/
-governances/
-  research-layout.md
-  research-synthesis.md
-  research-evidence.md
-  research-sources.md
-assets/
-  templates/
-    topic.md
-    synthesis.md
-    evidence.md
-    changes.md
-scripts/
-  new-topic.sh
+    SKILL.md
+    README.md
+    governances/
+      research-layout.md
+      research-conclusion.md
+      research-evidence.md
+      research-sources.md
+    assets/
+      templates/
+        topic.md
+        conclusion.md
+        evidence.md
+        changes.md
+    scripts/
+      new-topic.sh
 .plugin/
   plugin.json
 docs/
@@ -82,7 +84,7 @@ docs/
       canonical-sources.md
     <topic-slug>/
       topic.md
-      synthesis.md
+      conclusion.md
       evidence.md
       changes.md
 ```
@@ -91,8 +93,8 @@ Important distinction:
 
 - In the source repo, public skills are authored under `skills/`
 - In a consuming repo, installed skills live under `.agents/skills/`
-- `governances/`, `assets/`, and `scripts/` here describe source-repo content, not a shared `.agents/governances/` or `.agents/assets/` install tree
-- If assets or scripts are needed at runtime for an installed skill, they should live inside that installed skill directory under `.agents/skills/<name>/...`
+- `governances/`, `assets/`, and `scripts/` live inside the skill directory so they are distributed together with the skill
+- When installed in a consuming repo, these files land at `.agents/skills/research-workbench/governances/`, `assets/`, and `scripts/`
 
 ## Primary skill
 
@@ -101,9 +103,9 @@ The first skill is [`research-workbench`](skills/research-workbench/README.md). 
 - plan research before collecting material
 - maintain a canonical source registry
 - record evidence and changes per topic
-- write durable topic notes and synthesis summaries per topic
-- consume research by reading `synthesis.md` first, then falling back only when needed
-- scaffold new topic workspaces with `scripts/new-topic.sh`
+- write durable topic notes and conclusion documents per topic
+- consume research by reading `conclusion.md` first, then falling back only when needed
+- scaffold new topic workspaces with `skills/research-workbench/scripts/new-topic.sh`
 
 ## Design direction
 

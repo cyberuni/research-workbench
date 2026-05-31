@@ -23,12 +23,12 @@ Confidence: medium
 
 Source:
 - Label: working design decision
-- URL: https://github.com/cyberuni/research-workbench/blob/main/governances/research-synthesis.md
+- URL: https://github.com/cyberuni/research-workbench/blob/main/governances/research-conclusion.md
 - Type: governance
 
 Notes:
-- Consuming agents should read `synthesis.md` first and only drill into other files when needed.
-- This establishes a stronger consumption contract than treating synthesis as a summary teaser.
+- Consuming agents should read `conclusion.md` first and only drill into other files when needed.
+- This establishes a stronger consumption contract than treating the conclusion as a summary teaser.
 
 ## Claim GRE-003
 

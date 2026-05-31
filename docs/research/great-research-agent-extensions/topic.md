@@ -30,15 +30,15 @@ Out of scope:
 
 ### Package shape matters less than consumption contract
 
-The strongest reusable requirement so far is not the plugin bundle itself, but a strict contract for how research outputs are stored and read. `synthesis.md` needs to be the main consumption surface. Topic-local evidence and change history exist to support verification and updates, not to force every reader into process detail.
+The strongest reusable requirement so far is not the plugin bundle itself, but a strict contract for how research outputs are stored and read. `conclusion.md` needs to be the main consumption surface. Topic-local evidence and change history exist to support verification and updates, not to force every reader into process detail.
 
 ### Topic-centric workspaces fit screaming architecture
 
-Shared artifact buckets like `topics/`, `evidence/`, and `syntheses/` hide the main domain. A topic directory with `topic.md`, `synthesis.md`, `evidence.csv`, and `changes.md` keeps each research question visible and coherent.
+Shared artifact buckets like `topics/`, `evidence/`, and `conclusions/` hide the main domain. A topic directory with `topic.md`, `conclusion.md`, `evidence.csv`, and `changes.md` keeps each research question visible and coherent.
 
 ### Shared contracts should be extracted from skill prose
 
-Rules for layout, synthesis, evidence, and source registries are likely to be reused across future skills. They belong in shared normative files rather than only in one `SKILL.md`.
+Rules for layout, conclusion, evidence, and source registries are likely to be reused across future skills. They belong in shared normative files rather than only in one `SKILL.md`.
 
 ### Multi-agent pipelines are a useful contrast, not the default
 

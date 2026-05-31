@@ -13,22 +13,25 @@ It separates:
 - structured evidence per topic
 - conclusion documents per topic that inform decisions and agent consumption
 
-## How users use this repo
+## Install
 
-Most users do not work in this repository directly.
+Run this in your own repository:
 
-The normal workflow is:
+```bash
+npx skills add cyberuni/research-workbench --skill deep-research
+```
 
-1. Install the skill with `npx skills add cyberuni/research-workbench --skill deep-research`
-2. Open your own repository in Claude Code, Cursor, Codex, or another agent
-3. Ask the agent to do deep research on a topic
-4. Commit the resulting files in your repo, including any installed skill files under `.agents/`
+This installs the skill under `.agents/skills/deep-research/` in your repo.
 
-Example prompts:
+## Usage
+
+Open your repository in Claude Code, Cursor, Codex, or another agent and ask:
 
 - `Do deep research on this topic`
 - `Deep research: what are the tradeoffs of X vs Y?`
 - `Thorough investigation of Z and save the results`
+
+Commit the resulting files in your repo, including any installed skill files under `.agents/`.
 
 ## Installed layout in a consuming project
 

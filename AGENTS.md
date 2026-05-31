@@ -13,16 +13,16 @@ This repository defines reusable research workflows that store durable artifacts
 Keep the distinction clear:
 
 - `skills/` contains reusable public skills
-- `docs/research/sources/` contains long-lived source registries
-- `docs/research/topics/` contains topic-specific investigation notes
-- `docs/research/evidence/` contains structured evidence logs
-- `docs/research/syntheses/` contains outputs that support decisions, proposals, or downstream documentation
+- `docs/research/_sources/` contains long-lived source registries
+- `docs/research/_templates/` contains reusable file templates
+- `docs/research/<topic-slug>/` contains one topic's research workspace: investigation, synthesis, evidence, and change history
 
 ## Authoring Rules
 
 - Write all content in en-US.
 - Prefer markdown and plain text artifacts that are easy to diff and review.
 - Keep skill bodies agent-first and workflow-oriented.
+- Under `docs/research/`, topic directories are the primary user-facing unit. Shared infrastructure should recede behind `_sources/` or `_templates/`.
 - Do not treat `docs/research/` as scratch space; durable work belongs there only when it is useful to revisit or cross-check later.
 - When a skill defines a template or file structure, keep the skill concise and put reusable examples in repository files.
 

@@ -1,6 +1,6 @@
 # research-workbench
 
-Run grounded research in a repository with durable local artifacts for sources, evidence, notes, and synthesis.
+Run grounded research in a repository with one durable workspace per topic.
 
 ## When to use
 
@@ -17,9 +17,9 @@ Good triggers include:
 The skill standardizes:
 
 - canonical source registries
-- topic-specific research notes
-- structured evidence logging
-- synthesis outputs
+- one topic directory per research question
+- structured evidence logging per topic
+- synthesis and change history per topic
 
 ## Install
 

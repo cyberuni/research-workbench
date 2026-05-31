@@ -9,9 +9,9 @@ Repo-backed research workflows and skills for grounded, durable investigation.
 It separates:
 
 - durable source registries
-- topic-specific research notes
-- structured evidence logs
-- synthesis documents that inform decisions
+- topic-specific research workspaces
+- structured evidence per topic
+- synthesis documents per topic that inform decisions
 
 ## Initial layout
 
@@ -21,16 +21,19 @@ skills/
 docs/
   research/
     README.md
-    sources/
+    _sources/
       README.md
       canonical-sources.md
-    topics/
-      README.md
-    evidence/
-      README.md
+    _templates/
+      topic.md
+      synthesis.md
       evidence.csv
-    syntheses/
-      README.md
+      changes.md
+    <topic-slug>/
+      topic.md
+      synthesis.md
+      evidence.csv
+      changes.md
 ```
 
 ## Primary skill
@@ -39,8 +42,8 @@ The first skill is [`research-workbench`](skills/research-workbench/README.md). 
 
 - plan research before collecting material
 - maintain a canonical source registry
-- record claims and counterclaims in structured form
-- write durable topic notes and synthesis summaries
+- record evidence and changes per topic
+- write durable topic notes and synthesis summaries per topic
 
 ## Design direction
 

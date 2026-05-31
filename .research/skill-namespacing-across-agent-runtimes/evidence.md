@@ -18,24 +18,6 @@ Notes:
 - Explicitly states: "namespacing prevents conflicts between plugins"
 - **Superseded:** Claude Code changed behavior by 2026-05-31 (see E10)
 
-## Claim E10
-
-Date: 2026-05-31
-Status: supports
-Confidence: high
-
-Source:
-- Label: Direct observation — Claude Code skill list in system-reminder
-- URL: n/a (runtime behavior)
-- Type: primary observation
-
-Notes:
-- Claude Code skill list now displays: `/deep-research    (research-workbench) <description>`
-- Invocation is the short form `/deep-research`, not `/research-workbench:deep-research`
-- Plugin namespace is shown parenthetically in the description, not in the command
-- This is the "short form as convenience alias" pattern identified as ideal in the May 2026 conclusion
-- Exact display format: `/skill-name    (plugin-name) description text`
-
 ## Claim E02
 
 Date: 2026-05-31
@@ -167,3 +149,21 @@ Notes:
   - Agent Skills / Direct Messages API uses `Server:tool` (colon)
 - Colon format violates MCP spec character rules
 - Issue closed as "not planned" — no fix committed
+
+## Claim E10
+
+Date: 2026-05-31
+Status: supports
+Confidence: high
+
+Source:
+- Label: Direct observation — Claude Code skill list in system-reminder
+- URL: n/a (runtime behavior)
+- Type: primary observation
+
+Notes:
+- Claude Code skill list now displays: `/deep-research    (research-workbench) <description>`
+- Invocation is the short form `/deep-research`, not `/research-workbench:deep-research`
+- Plugin namespace is shown parenthetically in the description, not in the command
+- This is the "short form as convenience alias" pattern identified as ideal in the May 2026 conclusion
+- Exact display format: `/skill-name    (plugin-name) description text`

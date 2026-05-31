@@ -10,12 +10,17 @@ When reading any `SKILL.md` file, always check whether a `SKILL.local.md` exists
 
 This repository defines reusable research workflows that store durable artifacts in the local repository.
 
+This repository is also a Claude Code plugin named `research-workbench`. The plugin manifest is at `.claude-plugin/plugin.json`. Skills in `skills/` are installed as `/research-workbench:<skill-name>`.
+
 Keep the distinction clear:
 
-- `skills/deep-research/` contains the skill and all its supporting files
+- `.claude-plugin/plugin.json` contains the plugin manifest
+- `skills/deep-research/` contains the deep-research skill and all its supporting files
 - `skills/deep-research/governances/` contains shared research contracts
 - `skills/deep-research/assets/templates/` contains reusable topic file templates
 - `skills/deep-research/scripts/` contains helper scripts
+- `skills/community-post/SKILL.md` contains the upstream community-post skill (do not edit)
+- `skills/community-post/SKILL.local.md` contains local augmentations that integrate community-post with deep-research
 - `.research/_sources/` contains long-lived source registries
 - `.research/<topic-slug>/` contains one topic's research workspace: investigation, conclusion, evidence, and change history
 

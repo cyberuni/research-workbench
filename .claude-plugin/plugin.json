@@ -1,0 +1,9 @@
+{
+  "name": "research-workbench",
+  "description": "Durable research workflows and community post authoring for AI coding agents.",
+  "version": "1.0.0",
+  "author": {
+    "name": "unional"
+  },
+  "homepage": "https://github.com/cyberuni/research-workbench"
+}

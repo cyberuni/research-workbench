@@ -106,35 +106,20 @@ Check:
 
 ### 8. File
 
-Use the appropriate command or interface for the chosen venue:
-
-**GitHub issue:**
-```bash
-gh issue create \
-  --repo <org>/<repo> \
-  --title "<title>" \
-  --body "$(cat <<'BODY'
-<post body>
-BODY
-)"
-```
-
-**GitHub discussion:**
-```bash
-gh api graphql -f query='mutation { createDiscussion(...) { discussion { url } } }'
-```
-
-**Asana task:** Use the Asana MCP tools to create a task with the post body as the description.
-
-**Discord / Reddit / X:** Draft the post body, then paste manually or via the relevant API/MCP tool.
-
-Capture the URL or reference and update `conclusion.md` with a link to the live post under a `## Filed` section.
+File to the venue identified in step 1. Capture the URL or reference and update `conclusion.md` with a link to the live post under a `## Filed` section. See **References** for platform-specific commands.
 
 ## Anti-patterns
 
-- **Posting to a venue where the audience can't act** — pick the place where the people who matter are present.
+- **Defaulting to a low-impact venue when none was specified** — if the user has not identified a venue, pick the place where the people who can act are present, not the most convenient one.
 - **Listing objections without addressing them** — makes the post look incomplete; readers will raise them anyway.
 - **"Position 1 / Position 2" headings** — sounds like a formal debate brief; use "Idea 1 / Idea 2" instead.
 - **Ending with demands** — "this MUST change" closes the conversation; "I'd love to see this clarified" opens it.
 - **Skipping the prior art section** — wastes reader time and signals you haven't done the homework.
 - **Cross-posting to multiple venues simultaneously** — pick the primary venue; cross-reference from secondary venues after the primary post is live.
+
+## References
+
+- **GitHub issue:** `gh issue create --repo <org>/<repo> --title "<title>" --body "$(cat <<'BODY'\n<post body>\nBODY\n)"`
+- **GitHub discussion:** `gh api graphql` with a `createDiscussion` mutation
+- **Asana task:** use the Asana MCP tools; set the post body as the task description
+- **Discord / Reddit / X:** draft the post body, then paste manually or via the relevant API/MCP tool

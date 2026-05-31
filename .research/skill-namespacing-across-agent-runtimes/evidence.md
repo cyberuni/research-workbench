@@ -167,3 +167,22 @@ Notes:
 - Plugin namespace is shown parenthetically in the description, not in the command
 - This is the "short form as convenience alias" pattern identified as ideal in the May 2026 conclusion
 - Exact display format: `/skill-name    (plugin-name) description text`
+- Refined by E11: tab expansion confirms the short form is a true alias for the namespaced form
+
+## Claim E11
+
+Date: 2026-05-31
+Status: supports
+Confidence: high
+
+Source:
+- Label: Direct observation — Claude Code tab completion on `/community-post`
+- URL: n/a (runtime behavior)
+- Type: primary observation
+
+Notes:
+- `/community-post` appears in the skill list (short form only — `/research-workbench:community-post` is not listed separately)
+- Pressing `[tab]` on `/community-post` expands it to `/research-workbench:community-post`
+- Confirms: the short form is a convenience alias; the long namespaced form is the canonical underlying invocation
+- Confirms: the long form `/plugin-name:skill-name` works (resolves the "unconfirmed" item from E10 / conclusion)
+- The design choice — show only the short form, hide the long form from the list — is cleaner than surfacing both; avoids duplicate entries while still making the namespace discoverable via tab

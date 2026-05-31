@@ -10,7 +10,7 @@ Most agent runtimes keep plugin namespacing invisible to the user. Windsurf and 
 
 **Claude Code converged to the same short-form invocation as of 2026-05-31.** A plugin skill that was previously invoked as `/research-workbench:deep-research` is now invoked as `/deep-research`. The plugin name is shown parenthetically in the skill list — `/deep-research    (research-workbench) <description>` — preserving discoverability without requiring the user to type the namespace.
 
-This is the "short form as convenience alias" pattern identified as ideal in the original conclusion: the short form works when unambiguous, and the namespace is still surfaced so users know which plugin a skill comes from. Whether the long form `/plugin-name:skill-name` still works as an unambiguous override is not yet confirmed.
+Tab-completing the short form expands it to the full `/plugin-name:skill-name` form, confirming the short form is a true alias and the long form is the canonical underlying invocation. The long form is intentionally absent from the skill list — only the short form appears — which avoids duplicate entries while keeping the namespace discoverable via tab. This is a cleaner implementation than surfacing both forms.
 
 **The namespacing problem remains unsolved at conflict time.** All runtimes now use short-form invocation by default. None has documented what happens when two installed plugins provide a skill with the same name. The ecosystem has prioritized UX convenience over conflict correctness — the same pattern every package ecosystem followed before scoped names became standard.
 
@@ -24,13 +24,14 @@ High — primary official documentation consulted for all major tools. One ambig
 
 ## Strongest support
 
-- Direct observation: Claude Code skill list shows `/deep-research    (research-workbench) <description>` — short-form invocation with parenthetical plugin attribution (E10)
+- Direct observation: tab-completing `/community-post` in Claude Code expands to `/research-workbench:community-post` — confirms short form is an alias, long form is canonical and works (E11)
+- Direct observation: Claude Code skill list shows `/deep-research    (research-workbench) <description>` — short-form only, with parenthetical plugin attribution (E10)
 - GitHub Copilot explicitly warns that manual namespace prefixes cause silent failures, confirming flat-only invocation (E04)
 - Windsurf, Antigravity, and Gemini CLI docs show no plugin-prefix form at all (E05, E06, E07)
 
 ## Strongest counterevidence
 
-- Claude Code docs (E01) described `/plugin-name:skill-name` as the canonical plugin invocation — now superseded by observed runtime behavior (E10). The long form may still work as an override; unconfirmed.
+- Claude Code docs (E01) described `/plugin-name:skill-name` as the canonical plugin invocation — now superseded by observed runtime behavior (E10, E11). The long form still works (confirmed by tab expansion) but is hidden from the skill list.
 
 ## Not supported
 
@@ -41,8 +42,7 @@ High — primary official documentation consulted for all major tools. One ambig
 
 - Codex CLI plugin invocation on conflict (E03 is unofficial)
 - Antigravity plugin-specific behavior — codelab only shows standalone skills
-- Whether Claude Code's long form `/plugin-name:skill-name` still works as an unambiguous override (not yet confirmed)
-- What Claude Code does when two plugins conflict on the same skill name
+- What Claude Code does when two plugins conflict on the same skill name (short form would be ambiguous; behavior undocumented)
 
 ## Recheck triggers
 

@@ -1,14 +1,22 @@
 # <Topic> Synthesis
 
-## Current answer
+## Question
 
-<What the evidence currently supports.>
+<What question does this synthesis answer?>
+
+## Verdict
+
+<Current best answer in a few paragraphs.>
 
 ## Confidence
 
 <Low | Medium | High>
 
-## Supported by
+## Strongest support
+
+- <Evidence row or source reference>
+
+## Strongest counterevidence
 
 - <Evidence row or source reference>
 

@@ -16,12 +16,17 @@ Use this skill when the work needs:
 - structured notes that can be reviewed in git
 - a synthesis that can later support design, policy, or implementation decisions
 
+## Modes
+
+- **Author mode**: create or update topic workspaces, evidence, and source registries.
+- **Consumer mode**: read `synthesis.md` first. Read `topic.md`, `evidence.csv`, or `changes.md` only when the synthesis is insufficient, contested, or stale.
+
 ## Storage Model
 
 Use these locations:
 
 - `docs/research/_sources/` for durable source registries and watchlists
-- `docs/research/_templates/` for reusable topic file templates
+- `assets/templates/` for reusable topic file templates
 - `docs/research/<topic-slug>/topic.md` for the working investigation record
 - `docs/research/<topic-slug>/synthesis.md` for the current best consumable answer
 - `docs/research/<topic-slug>/evidence.csv` for structured claims, contradictions, and confidence
@@ -38,6 +43,13 @@ Do not collapse all research into one file.
 5. Capture contradictions, weak evidence, and open questions explicitly.
 6. Write or refresh `docs/research/<topic-slug>/synthesis.md` when the findings are stable enough to summarize.
 7. Append material changes to `docs/research/<topic-slug>/changes.md`.
+
+Load shared contracts from:
+
+- `governances/research-layout.md`
+- `governances/research-synthesis.md`
+- `governances/research-evidence.md`
+- `governances/research-sources.md`
 
 ## Source Rules
 
@@ -116,10 +128,16 @@ If a claim is later overturned or weakened, update the row rather than silently 
 
 Each `synthesis.md` should state:
 
-- what the evidence supports
-- what it does not support
+- the question being answered
+- the current verdict
+- confidence
+- the strongest supporting evidence
+- the strongest weakening or contradictory evidence
+- what is not supported
 - where evidence is thin
 - what should be checked again later
+
+Treat `synthesis.md` as the main consumption surface. It should be a complete, condensed verdict of the research rather than a teaser that forces the reader into other files.
 
 ## Change Log Rules
 

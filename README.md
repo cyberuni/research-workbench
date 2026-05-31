@@ -11,24 +11,32 @@ It separates:
 - durable source registries
 - topic-specific research workspaces
 - structured evidence per topic
-- synthesis documents per topic that inform decisions
+- synthesis documents per topic that inform decisions and agent consumption
 
 ## Initial layout
 
 ```text
 skills/
   research-workbench/
+governances/
+  research-layout.md
+  research-synthesis.md
+  research-evidence.md
+  research-sources.md
+assets/
+  templates/
+    topic.md
+    synthesis.md
+    evidence.csv
+    changes.md
+.plugin/
+  plugin.json
 docs/
   research/
     README.md
     _sources/
       README.md
       canonical-sources.md
-    _templates/
-      topic.md
-      synthesis.md
-      evidence.csv
-      changes.md
     <topic-slug>/
       topic.md
       synthesis.md
@@ -44,6 +52,7 @@ The first skill is [`research-workbench`](skills/research-workbench/README.md). 
 - maintain a canonical source registry
 - record evidence and changes per topic
 - write durable topic notes and synthesis summaries per topic
+- consume research by reading `synthesis.md` first, then falling back only when needed
 
 ## Design direction
 

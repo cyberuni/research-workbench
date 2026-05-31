@@ -4,7 +4,7 @@ Repo-backed research workflows and skills for grounded, durable investigation.
 
 ## What this is
 
-`research` is a public skill repo for teams that want an Obsidian-like research workflow, but with the local repository as the source of truth.
+`deep-research` is a public skill repo for teams that want thorough, structured research workflows with the local repository as the source of truth.
 
 It separates:
 

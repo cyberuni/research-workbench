@@ -8,15 +8,17 @@ When a human explicitly invokes a skill, what syntax do they type — and does t
 
 Most agent runtimes keep plugin namespacing invisible to the user. Windsurf and Antigravity use `@skill-name`; Cursor and GitHub Copilot use `/skill-name`; Codex CLI uses `$skill-name`. The invocation is the same whether the skill comes from a plugin or a standalone file.
 
-**Claude Code converged to the same short-form invocation as of 2026-05-31.** A plugin skill that was previously invoked as `/research-workbench:deep-research` is now invoked as `/deep-research`. The plugin name is shown parenthetically in the skill list — `/deep-research    (research-workbench) <description>` — preserving discoverability without requiring the user to type the namespace.
+**Claude Code currently uses short-form invocation for skills.** A plugin skill appears as `/deep-research` with the plugin name shown parenthetically — `/deep-research    (research-workbench) <description>`. Tab-completing the short form expands to the full `/research-workbench:deep-research`, confirming the qualified form is the canonical underlying invocation. Commands, by contrast, are already prefixed by default (`/plugin-name:command`), creating an asymmetry between the two component types (E10, E11).
 
-Tab-completing the short form expands it to the full `/plugin-name:skill-name` form, confirming the short form is a true alias and the long form is the canonical underlying invocation. The long form is intentionally absent from the skill list — only the short form appears — which avoids duplicate entries while keeping the namespace discoverable via tab. This is a cleaner implementation than surfacing both forms.
+**The better model: prefixed form as primary, fuzzy completion as the UX bridge.** Showing skills as `/plugin-name:skill-name` in the list — consistent with commands — is correct for three reasons:
 
-**The namespacing problem remains unsolved at conflict time.** All runtimes now use short-form invocation by default. None has documented what happens when two installed plugins provide a skill with the same name. The ecosystem has prioritized UX convenience over conflict correctness — the same pattern every package ecosystem followed before scoped names became standard.
+1. **Conflict correctness.** Flat names silently resolve to whichever plugin loaded first. Prefixed names eliminate ambiguity by construction.
+2. **Consistency.** Users already see `/plugin:command` for commands; expecting `/plugin:skill` for skills is the natural extension, not a new concept.
+3. **Discoverability.** Typing `/<plugin>:<tab>` should narrow autocomplete to that plugin's full surface — commands and skills together. Today it only narrows to commands.
 
-The precedent is well-established. JavaScript (`npm`) resolved this with scoped packages (`@org/package`). Python resolved it with namespaced packages. PHP resolved it with vendor-prefixed namespaces. In each case, flat names won early, then conflicts forced namespacing as the ecosystem grew.
+The friction objection — "users don't want to type the full prefix" — dissolves with good fuzzy completion. If typing `community-post` (or even `comm`) surfaces `/research-workbench:community-post` in the autocomplete list, users get the best of both worlds: short to type, unambiguous to select.
 
-The agent runtime ecosystem is at that early phase. Skills are new, plugin libraries are small, and conflicts are rare. As skill marketplaces grow, unresolved flat-name conflicts will become the more painful problem — and some runtime will be first to require the namespaced form on conflict.
+**The namespacing problem is structurally the same as every past package ecosystem.** JavaScript resolved it with scoped packages (`@org/package`); Python with namespaced packages; PHP with vendor-prefixed namespaces. In each case, flat names won early, then conflicts forced namespacing as the ecosystem grew. The agent runtime ecosystem is at that early phase — skills are new, libraries are small, conflicts are rare. Prefixed-form-plus-fuzzy-search is the path that avoids repeating that history.
 
 ## Confidence
 
@@ -24,14 +26,15 @@ High — primary official documentation consulted for all major tools. One ambig
 
 ## Strongest support
 
-- Direct observation: tab-completing `/community-post` in Claude Code expands to `/research-workbench:community-post` — confirms short form is an alias, long form is canonical and works (E11)
-- Direct observation: Claude Code skill list shows `/deep-research    (research-workbench) <description>` — short-form only, with parenthetical plugin attribution (E10)
-- GitHub Copilot explicitly warns that manual namespace prefixes cause silent failures, confirming flat-only invocation (E04)
-- Windsurf, Antigravity, and Gemini CLI docs show no plugin-prefix form at all (E05, E06, E07)
+- Direct observation: Claude Code commands are already prefixed (`/plugin:command`) while skills are not — the asymmetry confirms prefixed skills is the natural completion, not a new ask (E10, E11)
+- Direct observation: tab-completing `/community-post` expands to `/research-workbench:community-post` — the qualified form already works; the only gap is surfacing it as primary in the list (E11)
+- @francisco-perez-sorrosal (anthropics/claude-code#50486): confirms asymmetry across multiple plugins and marketplaces; explicitly prefers uniform-prefixed with bare aliases secondary
+- @kriscoleman (anthropics/claude-code#50486): same request, with AC that unprefixed invocations continue working for backwards compat
 
 ## Strongest counterevidence
 
-- Claude Code docs (E01) described `/plugin-name:skill-name` as the canonical plugin invocation — now superseded by observed runtime behavior (E10, E11). The long form still works (confirmed by tab expansion) but is hidden from the skill list.
+- GitHub Copilot explicitly warns that manual namespace prefixes cause silent failures (E04) — though this may reflect Copilot-specific registration constraints rather than a general UX argument against prefixing
+- Windsurf, Antigravity, Gemini CLI show no plugin-prefix form at all (E05, E06, E07) — suggests the ecosystem default is currently flat; prefixed-as-primary would be a divergence from peers
 
 ## Not supported
 
@@ -42,15 +45,15 @@ High — primary official documentation consulted for all major tools. One ambig
 
 - Codex CLI plugin invocation on conflict (E03 is unofficial)
 - Antigravity plugin-specific behavior — codelab only shows standalone skills
-- What Claude Code does when two plugins conflict on the same skill name (short form would be ambiguous; behavior undocumented)
+- What fuzzy completion quality looks like in practice across runtimes — the prefixed-plus-fuzzy model depends on good autocomplete that no runtime has yet demonstrated
 
 ## Recheck triggers
 
-- Claude Code documents conflict resolution behavior for duplicate skill names across plugins
-- Cursor, Windsurf, Copilot, or Codex adds explicit plugin namespacing or conflict resolution
-- A shared SKILL.md or plugin spec proposes a cross-runtime namespace standard
-- Claude Code plugin docs are updated to reflect the new short-form display behavior
+- Claude Code ships prefixed skills (`/plugin:skill` as primary) with fuzzy completion — confirms or disproves the model in practice
+- Any runtime ships prefixed-form-as-primary for skills and documents the fuzzy-search behavior
+- vercel-labs/open-plugin-spec adopts a normative position on skill invocation format
+- GitHub Copilot updates its guidance on namespace prefixes (E04)
 
 ## Filed
 
-- https://github.com/anthropics/claude-code/issues/50486#issuecomment-4588493786 (2026-05-31) — comment on open issue requesting uniform prefix for skills. Position: current short-form-alias behavior is good DX; skill name conflicts are real but rare; if fuzzy search improves, remaining concerns dissolve. Prefixed display for consistency is reasonable as a secondary ask.
+- https://github.com/anthropics/claude-code/issues/50486#issuecomment-4588493786 (2026-05-31) — comment on open issue requesting uniform prefix for skills. Position: prefixed form (`/plugin:skill`) is better for consistency with commands; good fuzzy completion removes the typing-friction objection and makes prefixed-as-primary viable.

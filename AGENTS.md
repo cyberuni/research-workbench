@@ -16,22 +16,31 @@ Keep the distinction clear:
 - `skills/research/governances/` contains shared research contracts
 - `skills/research/assets/templates/` contains reusable topic file templates
 - `skills/research/scripts/` contains helper scripts
-- `docs/research/_sources/` contains long-lived source registries
-- `docs/research/<topic-slug>/` contains one topic's research workspace: investigation, conclusion, evidence, and change history
+- `.research/_sources/` contains long-lived source registries
+- `.research/<topic-slug>/` contains one topic's research workspace: investigation, conclusion, evidence, and change history
 
 ## Authoring Rules
 
 - Write all content in en-US.
 - Prefer markdown and plain text artifacts that are easy to diff and review.
 - Keep skill bodies agent-first and workflow-oriented.
-- Under `docs/research/`, topic directories are the primary user-facing unit. Shared infrastructure should recede behind `_sources/`.
+- Under `.research/`, topic directories are the primary user-facing unit. Shared infrastructure should recede behind `_sources/`.
 - `conclusion.md` is the default consumption surface for agents and humans. It should be complete enough to stand on its own for most reads.
-- Do not treat `docs/research/` as scratch space; durable work belongs there only when it is useful to revisit or cross-check later.
+- Do not treat `.research/` as scratch space; durable work belongs there only when it is useful to revisit or cross-check later.
 - When a skill defines a template or file structure, keep the skill concise and put reusable examples in repository files.
 
 ## Commit Discipline
 
-- Make one logical change per commit.
-- Stage only intended files for the current change.
-- Use Conventional Commits.
-- Run the smallest meaningful verification before committing.
+**Auto-commit rule:** When a unit of work is complete and verified, commit it immediately — do not wait for the user to ask. Batching multiple units into one commit, or finishing all work before committing, are both violations of this rule.
+
+**Unit of work:** one coherent, independently revertable change — one domain's refactor, one feature, one bugfix, one test suite expansion for one concern, one config change. Never two unrelated concerns in the same commit. A TDD red-green-refactor cycle alone is not a commit boundary; commit when the full intended change is complete and tests pass. If the working tree has unrelated changes, leave them unstaged — commit the current unit first, then continue.
+
+- Conventional Commits: `feat:`, `fix:`, `refactor:`, `test:`, `docs:`, `chore:`
+- One concern per commit; never batch unrelated changes
+- Stage only files for this unit: `git add <files>`, then verify with `git diff --cached`
+- Never use `git add .`, `git add -A`, or `git add -p` (interactive commands agents cannot run)
+- Never commit with red tests; run validation commands first
+
+### References
+
+- **`commit-work` skill** — staging, splitting, and message writing when committing

@@ -1,17 +1,18 @@
 # Research Evidence
 
-Each topic directory must include `evidence.csv` with structured evidence rows.
+Each topic directory must include `evidence.md` with structured evidence entries.
 
-Required columns:
+Required fields per entry:
 
-- `date`
 - `claim_id`
-- `claim`
-- `source_label`
-- `source_url`
-- `source_type`
+- `date`
+- `status`
 - `confidence`
-- `contradiction_status`
+- `source.label`
+- `source.url`
+- `source.type`
 - `notes`
 
 Evidence should be traceable enough to support or challenge the current synthesis without reconstructing the entire research process from prose alone.
+
+A recommended structure is one markdown section per claim or evidence item, using consistent field labels so agents can read it reliably.

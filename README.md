@@ -40,7 +40,7 @@ docs/
     <topic-slug>/
       topic.md
       synthesis.md
-      evidence.csv
+      evidence.md
       changes.md
 ```
 

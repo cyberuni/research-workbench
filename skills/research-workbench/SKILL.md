@@ -29,7 +29,7 @@ Use these locations:
 - `assets/templates/` for reusable topic file templates
 - `docs/research/<topic-slug>/topic.md` for the working investigation record
 - `docs/research/<topic-slug>/synthesis.md` for the current best consumable answer
-- `docs/research/<topic-slug>/evidence.csv` for structured claims, contradictions, and confidence
+- `docs/research/<topic-slug>/evidence.md` for structured claims, contradictions, and confidence
 - `docs/research/<topic-slug>/changes.md` for topic-specific update history
 
 Do not collapse all research into one file.
@@ -39,7 +39,7 @@ Do not collapse all research into one file.
 1. Define the question and scope before collecting sources.
 2. Check `docs/research/_sources/` for relevant canonical sources and note which source angles must be covered.
 3. Create or update `docs/research/<topic-slug>/topic.md`.
-4. Record evidence in `docs/research/<topic-slug>/evidence.csv` as claims are gathered.
+4. Record evidence in `docs/research/<topic-slug>/evidence.md` as claims are gathered.
 5. Capture contradictions, weak evidence, and open questions explicitly.
 6. Write or refresh `docs/research/<topic-slug>/synthesis.md` when the findings are stable enough to summarize.
 7. Append material changes to `docs/research/<topic-slug>/changes.md`.
@@ -66,7 +66,7 @@ Each topic should live in its own directory:
 docs/research/<topic-slug>/
   topic.md
   synthesis.md
-  evidence.csv
+  evidence.md
   changes.md
 ```
 
@@ -110,16 +110,17 @@ Use this structure for `topic.md`:
 
 ## Evidence Log Rules
 
-Each `evidence.csv` row should capture:
+Use `evidence.md` with one section per claim or evidence item.
 
+Each evidence entry should capture:
+
+- claim ID
 - date
-- claim_id
-- claim
+- status
+- confidence
 - source label
 - source URL
 - source type
-- confidence
-- contradiction status
 - notes
 
 If a claim is later overturned or weakened, update the row rather than silently replacing the conclusion elsewhere.

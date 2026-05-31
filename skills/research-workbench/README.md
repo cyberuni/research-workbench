@@ -18,7 +18,7 @@ The skill standardizes:
 
 - canonical source registries
 - one topic directory per research question
-- structured evidence logging per topic
+- structured evidence notes per topic
 - synthesis and change history per topic
 - `synthesis.md` as the default file consuming agents should read
 

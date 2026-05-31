@@ -14,11 +14,11 @@
 
 ## Strongest support
 
-- <Evidence row or source reference>
+- <Evidence claim or source reference>
 
 ## Strongest counterevidence
 
-- <Evidence row or source reference>
+- <Evidence claim or source reference>
 
 ## Not supported
 

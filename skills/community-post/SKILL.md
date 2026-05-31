@@ -103,6 +103,7 @@ Check:
 - [ ] Counterarguments section addresses every objection found in step 3
 - [ ] Closing includes an offer to contribute and an open question
 - [ ] Own repo or implementation is mentioned to show skin in the game
+- [ ] Draft presented to user and explicit approval received — do not file unless the user confirms or has explicitly authorized auto-posting upfront
 
 ### 8. File
 

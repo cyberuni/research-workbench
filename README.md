@@ -1,4 +1,4 @@
-# research
+# research-workbench
 
 Repo-backed research workflows and skills for grounded, durable investigation.
 

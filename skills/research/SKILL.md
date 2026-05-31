@@ -23,12 +23,15 @@ Use this skill when the work needs:
 ## Modes
 
 - **Draft mode** (default): research in a temp folder, present results inline, iterate with user, offer to save when satisfied.
+- **Update mode**: load existing research from `<research-root>/`, re-investigate for new info or contradictions, present what changed inline, offer to write changes back.
 - **Durable mode**: write directly to `<research-root>/`. Use when the user says to save from the start, or when the research is large enough that it will take multiple sessions to complete.
 - **Consumer mode**: read `conclusion.md` first. Read `topic.md`, `evidence.md`, or `changes.md` only when the conclusion is insufficient, contested, or stale.
 
 ### Choosing the mode
 
 Use **Consumer mode** when the user is asking about or referencing existing research (e.g., "what did we find about X?", "summarize the conclusion on Y", "is there prior research on Z?").
+
+Use **Update mode** when the user wants to revisit, refresh, or re-run existing research (e.g., "check for new info on X", "any contradictions since we last looked?", "update the research on Y").
 
 Otherwise, start in **Draft mode** unless any of these are true:
 - The user explicitly asks to save or store the research.
@@ -40,6 +43,14 @@ In **Draft mode**:
 3. Iterate: ask the user if they have feedback, corrections, or want open questions explored further.
 4. When the result is good, ask: "Want me to save this research to `.research/<topic-slug>/`?"
 5. On confirmation, copy artifacts from temp to `<research-root>/` and commit.
+
+In **Update mode**:
+1. Read existing artifacts from `<research-root>/<topic-slug>/`.
+2. Re-investigate: look for new sources, changed information, or claims that now contradict the prior conclusion.
+3. Present what is new or changed inline. Highlight contradictions or confidence shifts.
+4. Iterate with the user on any open questions.
+5. When the result is good, ask: "Want me to write these updates back to `.research/<topic-slug>/`?"
+6. On confirmation, update the artifacts in place and append to `changes.md`, then commit.
 
 ## Storage Model
 
@@ -66,6 +77,17 @@ Do not collapse all research into one file.
 6. Repeat until the user is satisfied.
 7. Ask: "Want me to save this research to `.research/<topic-slug>/`?"
 8. On yes: copy artifacts to `<research-root>/` and commit.
+
+### Update mode workflow
+
+1. Read existing artifacts from `<research-root>/<topic-slug>/`.
+2. Identify the prior conclusion, open questions, and evidence gaps.
+3. Re-investigate: search for new sources, changed positions, or claims that now contradict the record.
+4. Present a diff-style summary inline: what is confirmed, what is new, what now contradicts prior findings.
+5. Ask the user for feedback or whether to explore any new open questions.
+6. Repeat until the user is satisfied.
+7. Ask: "Want me to write these updates back to `.research/<topic-slug>/`?"
+8. On yes: update artifacts in place, append a dated entry to `changes.md`, and commit.
 
 ### Durable mode workflow
 

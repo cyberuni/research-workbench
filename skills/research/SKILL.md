@@ -7,6 +7,10 @@ description: "Use this skill when doing grounded research in a repository and yo
 
 Use the local repository as the durable research workspace.
 
+Default research root: `.research/`
+
+Override it per repository by adding a line like `research_root: research` to `SKILL.local.md`.
+
 ## When to use
 
 Use this skill when the work needs:
@@ -25,24 +29,24 @@ Use this skill when the work needs:
 
 Use these locations:
 
-- `docs/research/_sources/` for durable source registries and watchlists
+- `<research-root>/_sources/` for durable source registries and watchlists
 - `<skill-dir>/assets/templates/` for reusable topic file templates
-- `docs/research/<topic-slug>/topic.md` for the working investigation record
-- `docs/research/<topic-slug>/conclusion.md` for the current best consumable answer
-- `docs/research/<topic-slug>/evidence.md` for structured claims, contradictions, and confidence
-- `docs/research/<topic-slug>/changes.md` for topic-specific update history
+- `<research-root>/<topic-slug>/topic.md` for the working investigation record
+- `<research-root>/<topic-slug>/conclusion.md` for the current best consumable answer
+- `<research-root>/<topic-slug>/evidence.md` for structured claims, contradictions, and confidence
+- `<research-root>/<topic-slug>/changes.md` for topic-specific update history
 
 Do not collapse all research into one file.
 
 ## Workflow
 
 1. Define the question and scope before collecting sources.
-2. Check `docs/research/_sources/` for relevant canonical sources and note which source angles must be covered.
+2. Check `<research-root>/_sources/` for relevant canonical sources and note which source angles must be covered.
 3. Create a new topic directory with `bash <skill-dir>/scripts/new-topic.sh "<Topic Title>"` or update an existing one.
-4. Record evidence in `docs/research/<topic-slug>/evidence.md` as claims are gathered.
+4. Record evidence in `<research-root>/<topic-slug>/evidence.md` as claims are gathered.
 5. Capture contradictions, weak evidence, and open questions explicitly.
-6. Write or refresh `docs/research/<topic-slug>/conclusion.md` when the findings are stable enough to summarize.
-7. Append material changes to `docs/research/<topic-slug>/changes.md`.
+6. Write or refresh `<research-root>/<topic-slug>/conclusion.md` when the findings are stable enough to summarize.
+7. Append material changes to `<research-root>/<topic-slug>/changes.md`.
 
 Load shared contracts from the skill directory:
 
@@ -60,10 +64,10 @@ Load shared contracts from the skill directory:
 
 ## Topic Workspace Structure
 
-Each topic should live in its own directory:
+Each topic should live in its own directory under `<research-root>/`:
 
 ```text
-docs/research/<topic-slug>/
+<research-root>/<topic-slug>/
   topic.md
   conclusion.md
   evidence.md

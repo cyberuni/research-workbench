@@ -76,23 +76,23 @@ skills/
       new-topic.sh
 .plugin/
   plugin.json
-docs/
-  research/
+.research/
+  README.md
+  _sources/
     README.md
-    _sources/
-      README.md
-      canonical-sources.md
-    <topic-slug>/
-      topic.md
-      conclusion.md
-      evidence.md
-      changes.md
+    canonical-sources.md
+  <topic-slug>/
+    topic.md
+    conclusion.md
+    evidence.md
+    changes.md
 ```
 
 Important distinction:
 
 - In the source repo, public skills are authored under `skills/`
 - In a consuming repo, installed skills live under `.agents/skills/`
+- Research artifacts default to `.research/` in the consuming repo and can be overridden per repo
 - `governances/`, `assets/`, and `scripts/` live inside the skill directory so they are distributed together with the skill
 - When installed in a consuming repo, these files land at `.agents/skills/research/governances/`, `assets/`, and `scripts/`
 

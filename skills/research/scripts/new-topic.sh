@@ -11,7 +11,35 @@ TITLE="$1"
 SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ROOT_DIR="$(git -C "$SKILL_DIR" rev-parse --show-toplevel)"
 TEMPLATES_DIR="$SKILL_DIR/assets/templates"
-RESEARCH_DIR="$ROOT_DIR/docs/research"
+DEFAULT_RESEARCH_ROOT=".research"
+
+resolve_research_root() {
+  if [[ -n "${RESEARCH_ROOT:-}" ]]; then
+    printf '%s\n' "${RESEARCH_ROOT%/}"
+    return
+  fi
+
+  local local_skill="$SKILL_DIR/SKILL.local.md"
+  if [[ -f "$local_skill" ]]; then
+    local configured_root
+    configured_root="$(sed -nE "s/^[[:space:]]*research_root:[[:space:]]*['\"]?([^'\"]+)['\"]?[[:space:]]*$/\\1/p" "$local_skill" | head -n 1)"
+    if [[ -n "$configured_root" ]]; then
+      printf '%s\n' "${configured_root%/}"
+      return
+    fi
+  fi
+
+  printf '%s\n' "$DEFAULT_RESEARCH_ROOT"
+}
+
+RESEARCH_ROOT="$(resolve_research_root)"
+
+if [[ "$RESEARCH_ROOT" = /* ]]; then
+  echo "Error: research root must be repo-relative: $RESEARCH_ROOT" >&2
+  exit 1
+fi
+
+RESEARCH_DIR="$ROOT_DIR/$RESEARCH_ROOT"
 
 SLUG="$(printf '%s' "$TITLE" \
   | tr '[:upper:]' '[:lower:]' \

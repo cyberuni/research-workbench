@@ -1,6 +1,6 @@
 # Research Sources
 
-Shared source registries live under `docs/research/_sources/`.
+Shared source registries live under `<research-root>/_sources/`.
 
 Use them for:
 

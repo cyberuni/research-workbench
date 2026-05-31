@@ -23,6 +23,20 @@ The skill standardizes:
 - `conclusion.md` as the default file consuming agents should read
 - a small scaffold script for new topic workspaces
 
+## Default storage
+
+By default, the skill stores durable research artifacts under:
+
+```text
+.research/
+```
+
+Override the root per repository by adding a line like this to `SKILL.local.md`:
+
+```text
+research_root: research
+```
+
 ## Install
 
 ```bash

@@ -22,8 +22,22 @@ Use this skill when the work needs:
 
 ## Modes
 
-- **Author mode**: create or update topic workspaces, evidence, and source registries.
+- **Draft mode** (default): research in a temp folder, present results inline, iterate with user, offer to save when satisfied.
+- **Durable mode**: write directly to `<research-root>/`. Use when the user says to save from the start, or when the research is large enough that it will take multiple sessions to complete.
 - **Consumer mode**: read `conclusion.md` first. Read `topic.md`, `evidence.md`, or `changes.md` only when the conclusion is insufficient, contested, or stale.
+
+### Choosing the mode
+
+Start in **Draft mode** unless any of these are true:
+- The user explicitly asks to save or store the research.
+- The research scope is broad enough that it will clearly span multiple sessions.
+
+In **Draft mode**:
+1. Use a system temp directory (e.g., `/tmp/research-<topic-slug>/`) for all artifacts.
+2. Present the conclusion and open questions inline in the response.
+3. Iterate: ask the user if they have feedback, corrections, or want open questions explored further.
+4. When the result is good, ask: "Want me to save this research to `.research/<topic-slug>/`?"
+5. On confirmation, copy artifacts from temp to `<research-root>/` and commit.
 
 ## Storage Model
 
@@ -39,6 +53,19 @@ Use these locations:
 Do not collapse all research into one file.
 
 ## Workflow
+
+### Draft mode workflow
+
+1. Define the question and scope.
+2. Check `<research-root>/_sources/` for relevant canonical sources.
+3. Write artifacts to `/tmp/research-<topic-slug>/`.
+4. Present the conclusion inline. List any open questions and contradictions.
+5. Ask the user for feedback or whether to dig into open questions.
+6. Repeat until the user is satisfied.
+7. Ask: "Want me to save this research to `.research/<topic-slug>/`?"
+8. On yes: copy artifacts to `<research-root>/` and commit.
+
+### Durable mode workflow
 
 1. Define the question and scope before collecting sources.
 2. Check `<research-root>/_sources/` for relevant canonical sources and note which source angles must be covered.

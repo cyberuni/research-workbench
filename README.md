@@ -19,7 +19,7 @@ Most users do not work in this repository directly.
 
 The normal workflow is:
 
-1. Install the skill with `npx skills add cyberuni/research --skill deep-research`
+1. Install the skill with `npx skills add cyberuni/research-workbench --skill deep-research`
 2. Open your own repository in Claude Code, Cursor, Codex, or another agent
 3. Ask the agent to do deep research on a topic
 4. Commit the resulting files in your repo, including any installed skill files under `.agents/`

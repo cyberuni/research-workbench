@@ -42,5 +42,5 @@ research_root: research
 ## Install
 
 ```bash
-npx skills add cyberuni/research --skill research
+npx skills add cyberuni/research-workbench --skill deep-research
 ```

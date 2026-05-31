@@ -4,7 +4,7 @@ Repo-backed research workflows and skills for grounded, durable investigation.
 
 ## What this is
 
-`deep-research` is a public skill repo for teams that want thorough, structured research workflows with the local repository as the source of truth.
+This is a public skill repo that ships the `deep-research` skill — a structured, multi-source research workflow that uses the local repository as the source of truth.
 
 It separates:
 
@@ -19,7 +19,7 @@ Most users do not work in this repository directly.
 
 The normal workflow is:
 
-1. Install the skill with `npx skills add cyberuni/research --skill research`
+1. Install the skill with `npx skills add cyberuni/research --skill deep-research`
 2. Open your own repository in Claude Code, Cursor, Codex, or another agent
 3. Ask the agent to do deep research on a topic
 4. Commit the resulting files in your repo, including any installed skill files under `.agents/`
@@ -58,7 +58,7 @@ This repository itself is the source repo that users install from. Its authored 
 
 ```text
 skills/
-  research/
+  deep-research/
     SKILL.md
     README.md
     governances/

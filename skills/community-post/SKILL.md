@@ -1,13 +1,23 @@
 ---
-name: community-proposal
+name: community-post
 description: "Use this skill when contributing a design proposal to an open-source community — research, draft with evidence, file."
 ---
 
-# Community Proposal
+# Community Post
 
 ## When to use
 
 When you have a design decision or architectural insight and want to contribute it upstream — as a GitHub issue, RFC, or discussion post — with evidence, community context, and counterarguments addressed.
+
+## Modes
+
+This skill operates in three modes depending on what research exists:
+
+- **New** — no prior research exists. Run the `deep-research` skill first (durable mode), then draft the post from the resulting artifacts.
+- **Existing** — research already lives in `.research/<topic-slug>/`. Read `conclusion.md` and `evidence.md` directly; skip to step 4.
+- **Follow-up** — a post has already been filed and new research updates exist. Run the `deep-research` skill in update mode, then draft a follow-up post referencing the original issue URL.
+
+Choose the mode by checking whether `.research/<topic-slug>/` exists and whether a prior issue URL is recorded in `conclusion.md`.
 
 ## Steps
 
@@ -40,11 +50,17 @@ Separate what you found into two groups:
 - Partially addressed (acknowledge the gap)
 - Out of scope (say so without dismissing it)
 
-### 4. Write a research document
+### 4. Save research with the deep-research workbench
 
-If the repo has a `docs/research/` convention, save findings there before drafting the post. This separates durable evidence from the ephemeral issue body.
+Do not create a `docs/research/YYYY-MM-<topic>.md` file. Instead:
 
-Use the format: `YYYY-MM-<topic>.md`. Include sources, community position table, and open questions.
+1. Use the `deep-research` skill to produce or update the topic workspace at `.research/<topic-slug>/`.
+2. The research must capture, at minimum:
+   - Author handles (`@username`) for every prior-art reference found in steps 2–3
+   - Community position table (agreements vs. counterarguments)
+   - Open questions and confidence level
+3. `conclusion.md` becomes the primary input for drafting the post (step 5). Read it in full before writing anything.
+4. After the post is filed, append the live issue URL to `conclusion.md` under a `## Filed` section.
 
 ### 5. Draft the post
 
@@ -92,7 +108,7 @@ BODY
 )"
 ```
 
-Capture the URL from stdout and update the research document with a link to the live issue.
+Capture the URL from stdout and update `conclusion.md` with a link to the live issue under a `## Filed` section.
 
 ## Anti-patterns
 

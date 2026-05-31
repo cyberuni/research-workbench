@@ -19,8 +19,7 @@ Keep the distinction clear:
 - `skills/deep-research/governances/` contains shared research contracts
 - `skills/deep-research/assets/templates/` contains reusable topic file templates
 - `skills/deep-research/scripts/` contains helper scripts
-- `skills/community-post/SKILL.md` contains the upstream community-post skill (do not edit)
-- `skills/community-post/SKILL.local.md` contains local augmentations that integrate community-post with deep-research
+- `skills/community-post/SKILL.md` contains the community-post skill
 - `.research/_sources/` contains long-lived source registries
 - `.research/<topic-slug>/` contains one topic's research workspace: investigation, conclusion, evidence, and change history
 

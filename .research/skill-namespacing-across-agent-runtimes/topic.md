@@ -32,7 +32,7 @@ Each runtime chose its own trigger character:
 
 | Tool | Explicit invocation |
 |------|-------------------|
-| Claude Code | `/skill-name` (standalone), `/plugin-name:skill-name` (plugin) |
+| Claude Code | `/skill-name` (standalone and plugin — namespace shown parenthetically in description) |
 | Codex CLI | `$skill-name` |
 | Cursor | `/skill-name` |
 | GitHub Copilot | `/skill-name` |
@@ -40,11 +40,13 @@ Each runtime chose its own trigger character:
 | Antigravity | `@skill-name` or natural language |
 | Gemini CLI | natural language; `/skills` is management only |
 
-### Plugin namespacing is only surfaced to the user in Claude Code
+### Plugin namespacing: Claude Code moved to short-form invocation with parenthetical attribution
 
-Claude Code is the only runtime where installing a skill via a plugin changes what the user must type. A standalone `deep-research` skill becomes `/deep-research`; the same skill in a plugin named `research-workbench` becomes `/research-workbench:deep-research`.
+As of 2026-05-31, Claude Code changed behavior. Plugin skills are now invoked with the short form `/skill-name`, matching all other runtimes. The plugin namespace is shown parenthetically in the skill list description: `/deep-research    (research-workbench) <description>`. This is the "short form as convenience alias" pattern.
 
-All other tools (Codex, Cursor, Copilot, Windsurf, Antigravity, Gemini) keep the invocation flat — the plugin is transparent to the user. Conflict resolution in those tools is handled by scope precedence (workspace > global > system), last-installed-wins, or is simply undefined.
+Previously, Claude Code required `/research-workbench:deep-research` for plugin skills. That form may still work as the canonical unambiguous form, but the default display and invocation is now the short form.
+
+All tools (Claude Code, Codex, Cursor, Copilot, Windsurf, Antigravity, Gemini) now keep the invocation flat. Claude Code distinguishes itself by showing the source plugin parenthetically for discoverability, while others provide no such attribution.
 
 ### GitHub Copilot explicitly forbids manual namespace prefixes in skill names
 

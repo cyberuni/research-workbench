@@ -3,7 +3,7 @@
 ## Claim E01
 
 Date: 2026-05-31
-Status: supports
+Status: superseded by E10
 Confidence: high
 
 Source:
@@ -12,10 +12,29 @@ Source:
 - Type: official documentation
 
 Notes:
-- Confirms `/plugin-name:skill-name` format for plugin skills in Claude Code
+- Confirms `/plugin-name:skill-name` format for plugin skills in Claude Code (as of initial research)
 - Plugin `name` field in `plugin.json` sets the namespace prefix
 - Standalone skills in `.claude/skills/` use `/skill-name` with no prefix
 - Explicitly states: "namespacing prevents conflicts between plugins"
+- **Superseded:** Claude Code changed behavior by 2026-05-31 (see E10)
+
+## Claim E10
+
+Date: 2026-05-31
+Status: supports
+Confidence: high
+
+Source:
+- Label: Direct observation — Claude Code skill list in system-reminder
+- URL: n/a (runtime behavior)
+- Type: primary observation
+
+Notes:
+- Claude Code skill list now displays: `/deep-research    (research-workbench) <description>`
+- Invocation is the short form `/deep-research`, not `/research-workbench:deep-research`
+- Plugin namespace is shown parenthetically in the description, not in the command
+- This is the "short form as convenience alias" pattern identified as ideal in the May 2026 conclusion
+- Exact display format: `/skill-name    (plugin-name) description text`
 
 ## Claim E02
 

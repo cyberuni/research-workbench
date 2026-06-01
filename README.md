@@ -39,7 +39,15 @@ npx skills add cyberuni/research-workbench
 
 This installs the plugin under `.agents/plugins/research-workbench/` in your repo.
 
-Skills are invoked as `/research-workbench:deep-research` and `/research-workbench:community-post` in runtimes that support namespaced skills (Claude Code, Codex).
+Skills are invoked by name in each runtime:
+
+| Runtime | Invocation |
+|---|---|
+| Claude Code | `/deep-research` · `/community-post` (plugin shown parenthetically) |
+| Codex CLI | `$deep-research` · `$community-post` |
+| Cursor | `/deep-research` · `/community-post` |
+| GitHub Copilot | `/deep-research` · `/community-post` |
+| Windsurf | `@deep-research` · `@community-post` |
 
 ## Research artifact layout
 
@@ -57,6 +65,14 @@ When research is saved, artifacts land under `.research/` in the consuming repo:
 
 `conclusion.md` is the primary consumption surface — read it first before falling back to other files.
 
-## Plugin manifest
+## Plugin manifests
 
-The plugin manifest is at `.claude-plugin/plugin.json`. Skills live in `skills/`.
+Skills live in `skills/`. Each runtime reads from its own manifest directory:
+
+| Runtime | Manifest location |
+|---|---|
+| Claude Code / GitHub Copilot | `.claude-plugin/plugin.json` |
+| Codex CLI | `.codex-plugin/plugin.json` |
+| Cursor | `.cursor-plugin/plugin.json` |
+
+All manifests declare `"skills": "skills/"` to point at the shared skill definitions.

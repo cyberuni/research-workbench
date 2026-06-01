@@ -10,11 +10,13 @@ When reading any `SKILL.md` file, always check whether a `SKILL.local.md` exists
 
 This repository defines reusable research workflows that store durable artifacts in the local repository.
 
-This repository is also a Claude Code plugin named `research-workbench`. The plugin manifest is at `.claude-plugin/plugin.json`. Skills in `skills/` are installed as `/research-workbench:<skill-name>`.
+This repository is also a multi-runtime agent plugin named `research-workbench`. Skills in `skills/` work across Claude Code, Codex CLI, Cursor, and GitHub Copilot. Each runtime reads from its own manifest directory; all manifests point at the same `skills/` tree.
 
 Keep the distinction clear:
 
-- `.claude-plugin/plugin.json` contains the plugin manifest
+- `.claude-plugin/plugin.json` — manifest for Claude Code and GitHub Copilot
+- `.codex-plugin/plugin.json` — manifest for Codex CLI
+- `.cursor-plugin/plugin.json` — manifest for Cursor
 - `skills/deep-research/` contains the deep-research skill and all its supporting files
 - `skills/deep-research/governances/` contains shared research contracts
 - `skills/deep-research/assets/templates/` contains reusable topic file templates

@@ -1,69 +1,62 @@
 # research-workbench
 
-Repo-backed research workflows and skills for grounded, durable investigation.
+An agent plugin that ships durable research workflows and community post authoring for AI coding agents.
 
 ## What this is
 
-This is a public skill repo that ships the `deep-research` skill — a structured, multi-source research workflow for agents.
+`research-workbench` is a public agent plugin. It ships two skills — `deep-research` and `community-post` — that work across Claude Code, Codex, Cursor, and other agent runtimes that support the plugin format.
 
-By default the skill works in draft mode: results are shown inline and nothing is written to disk unless the user confirms. When saved, research artifacts land in `.research/` in the consuming repo.
+Skills work in draft mode by default: results are shown inline and nothing is written to disk unless you confirm. When saved, research artifacts land in `.research/` in the consuming repo.
 
-The skill separates:
+## Skills
+
+### `deep-research`
+
+A structured, multi-source research workflow. Separates:
 
 - durable source registries
 - topic-specific research workspaces
 - structured evidence per topic
 - conclusion documents per topic that inform decisions and agent consumption
 
-## Install
-
-Run this in your own repository:
-
-```bash
-npx skills add cyberuni/research-workbench --skill deep-research
-```
-
-This installs the skill under `.agents/skills/deep-research/` in your repo.
-
-## Usage
-
-Open your repository in Claude Code, Cursor, Codex, or another agent and ask:
+Invoke it with:
 
 - `Do deep research on this topic`
 - `Deep research: what are the tradeoffs of X vs Y?`
 - `Thorough investigation of Z and save the results`
 
-If the agent saves the research, commit the resulting files under `.research/`. The skill files under `.agents/` are committed once at install time and don't change per-research.
+See [`skills/deep-research/README.md`](skills/deep-research/README.md) for full details.
 
-## Installed layout in a consuming project
+### `community-post`
 
-When a team installs this skill project-scoped, the canonical install location is:
+Research a topic and produce a post as a durable artifact — GitHub issue, GitHub discussion, Discord message, Reddit/X post, or Asana task. Runs `deep-research` first (or reads existing research), then drafts and files the post.
 
-- `.agents/skills/deep-research/`
+## Install
 
-That installed skill directory can include sibling files and folders such as:
+```bash
+npx skills add cyberuni/research-workbench
+```
 
-- `SKILL.md`
-- `README.md`
-- `scripts/`
-- `assets/`
-- `references/`
-- `SKILL.project.md`
-- `SKILL.local.md`
+This installs the plugin under `.agents/plugins/research-workbench/` in your repo.
 
-If the root `skills/deep-research` path exists in the consuming repo, it should be treated as a compatibility symlink back to `.agents/skills/deep-research/`, not as the source of truth.
+Skills are invoked as `/research-workbench:deep-research` and `/research-workbench:community-post` in runtimes that support namespaced skills (Claude Code, Codex).
 
-Project installs may also write:
+## Research artifact layout
 
-- `.agents/cyber-skills-lock.json`
+When research is saved, artifacts land under `.research/` in the consuming repo:
 
-## Primary skill
+```text
+.research/
+  _sources/          # durable source registries
+  <topic-slug>/
+    topic.md         # working investigation record
+    conclusion.md    # current best consumable answer
+    evidence.md      # structured claims and confidence
+    changes.md       # update history
+```
 
-The first skill is [`deep-research`](skills/deep-research/README.md). It defines how to:
+`conclusion.md` is the primary consumption surface — read it first before falling back to other files.
 
-- plan research before collecting material
-- maintain a canonical source registry
-- record evidence and changes per topic
-- write durable topic notes and conclusion documents per topic
-- consume research by reading `conclusion.md` first, then falling back only when needed
-- scaffold new topic workspaces with `.agents/skills/deep-research/scripts/new-topic.sh`
+## Plugin manifest
+
+The plugin manifest is at `.claude-plugin/plugin.json`. Skills live in `skills/`.

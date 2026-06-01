@@ -57,3 +57,4 @@ High — primary official documentation consulted for all major tools. One ambig
 ## Filed
 
 - https://github.com/anthropics/claude-code/issues/50486#issuecomment-4588493786 (2026-05-31) — comment on open issue requesting uniform prefix for skills. Position: prefixed form (`/plugin:skill`) is better for consistency with commands; good fuzzy completion removes the typing-friction objection and makes prefixed-as-primary viable.
+- https://github.com/vercel-labs/open-plugin-spec/issues/6 (2026-05-31) — proposal to standardize prefixed-form-as-primary for all component types in the open plugin spec, with a non-normative fuzzy completion note.

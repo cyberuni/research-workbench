@@ -31,7 +31,7 @@ Signs the full workbench is warranted:
 - **Draft mode** (default): research in a temp folder, present results inline, iterate with user, offer to save when satisfied.
 - **Update mode**: load existing research from `<research-root>/`, re-investigate for new info or contradictions, present what changed inline, offer to write changes back.
 - **Durable mode**: write directly to `<research-root>/`. Use when the user says to save from the start, or when the research is large enough that it will take multiple sessions to complete.
-- **Consumer mode**: read `conclusion.md` first. Read `topic.md`, `evidence.md`, or `changes.md` only when the conclusion is insufficient, contested, or stale.
+- **Consumer mode**: read local `conclusion.md` first; if the topic is not found locally, check `_sources/remote-topics.md` and fetch the remote conclusion. Read `topic.md`, `evidence.md`, or `changes.md` only when the conclusion is insufficient, contested, or stale.
 
 ### Choosing the mode
 
@@ -63,6 +63,7 @@ In **Update mode**:
 Use these locations:
 
 - `<research-root>/_sources/` for durable source registries and watchlists
+- `<research-root>/_sources/remote-topics.md` for a registry of remote research topics available to fetch
 - `<skill-dir>/assets/templates/` for reusable topic file templates
 - `<research-root>/<topic-slug>/topic.md` for the working investigation record
 - `<research-root>/<topic-slug>/conclusion.md` for the current best consumable answer
@@ -94,6 +95,17 @@ Do not collapse all research into one file.
 6. Repeat until the user is satisfied.
 7. Ask: "Want me to write these updates back to `.research/<topic-slug>/`?"
 8. On yes: update artifacts in place, append a dated entry to `changes.md`, and commit.
+
+### Consumer mode workflow
+
+1. Look for `<research-root>/<topic-slug>/conclusion.md` locally.
+2. If found, read it. Read `topic.md`, `evidence.md`, or `changes.md` only if the conclusion is insufficient, contested, or stale.
+3. If **not found locally**, check `<research-root>/_sources/remote-topics.md` for a matching topic slug or description.
+4. If a remote entry exists, fetch the URL. If `valid_until` is in the past, warn the user before presenting the content.
+5. Present the fetched conclusion. Offer to save it locally: "Want me to save this to `.research/<topic-slug>/conclusion.md`?"
+6. On yes: write the file and commit.
+
+Local research always takes precedence over remote. A local `conclusion.md` is never replaced by a remote fetch — use Update mode to refresh it explicitly.
 
 ### Durable mode workflow
 
@@ -200,6 +212,29 @@ Each `conclusion.md` should state:
 - what should be checked again later
 
 Treat `conclusion.md` as the main consumption surface. It should be a complete, condensed verdict of the research rather than a teaser that forces the reader into other files.
+
+## Remote Topics
+
+`<research-root>/_sources/remote-topics.md` is a project-local registry of research conclusions published in external repositories. It is the discoverability layer for remote research — add an entry here once, and consumer mode resolves it automatically on every subsequent lookup.
+
+Format:
+
+```markdown
+# Remote Research Topics
+
+| topic | url | valid_until | description |
+|-------|-----|-------------|-------------|
+| agent-runtime-landscape | https://raw.githubusercontent.com/org/repo/main/.research/agent-runtime-landscape/conclusion.md | 2026-01-01 | Survey of agent execution runtimes and their tradeoffs. |
+```
+
+Rules:
+
+- `topic` must match the directory slug used in `<research-root>/` so consumer mode can resolve it by name.
+- `url` must point directly to a `conclusion.md` file (raw, not a rendered page).
+- `valid_until` is required. Consumer mode warns when this date is past.
+- Pin to a specific git ref or tag in the URL when stability matters more than currency (e.g., `?ref=v2025-Q2`). Use the default branch when you want the latest.
+- Local research always wins. If `<research-root>/<topic>/conclusion.md` exists, it is used and the remote entry is ignored.
+- To add a remote topic: add a row to `_sources/remote-topics.md` and commit. No other wiring needed.
 
 ## Change Log Rules
 

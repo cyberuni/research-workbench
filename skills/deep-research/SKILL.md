@@ -101,7 +101,7 @@ Do not collapse all research into one file.
 1. Look for `<research-root>/<topic-slug>/conclusion.md` locally.
 2. If found, read it. Read `topic.md`, `evidence.md`, or `changes.md` only if the conclusion is insufficient, contested, or stale.
 3. If **not found locally**, check `<research-root>/_sources/remote-topics.md` for a matching topic slug or description.
-4. If a remote entry exists, fetch the URL. Check the `## Last updated` field in the fetched conclusion; if it is more than six months old, warn the user before presenting the content.
+4. If a remote entry exists, fetch the URL. Check the `## Last updated` field in the fetched conclusion; if present and more than six months old, warn the user before presenting the content. If absent, skip the age check.
 5. Present the fetched conclusion. Offer to save it locally: "Want me to save this to `.research/<topic-slug>/conclusion.md`?"
 6. On yes: write the file and commit.
 7. After presenting any remote conclusion, offer to register it: "Want me to add this to `_sources/remote-topics.md` so it is found automatically next time?"

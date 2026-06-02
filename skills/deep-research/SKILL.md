@@ -101,9 +101,10 @@ Do not collapse all research into one file.
 1. Look for `<research-root>/<topic-slug>/conclusion.md` locally.
 2. If found, read it. Read `topic.md`, `evidence.md`, or `changes.md` only if the conclusion is insufficient, contested, or stale.
 3. If **not found locally**, check `<research-root>/_sources/remote-topics.md` for a matching topic slug or description.
-4. If a remote entry exists, fetch the URL. If `valid_until` is in the past, warn the user before presenting the content.
+4. If a remote entry exists, fetch the URL. Check the `## Last updated` field in the fetched conclusion; if it is more than six months old, warn the user before presenting the content.
 5. Present the fetched conclusion. Offer to save it locally: "Want me to save this to `.research/<topic-slug>/conclusion.md`?"
 6. On yes: write the file and commit.
+7. After presenting any remote conclusion, offer to register it: "Want me to add this to `_sources/remote-topics.md` so it is found automatically next time?"
 
 Local research always takes precedence over remote. A local `conclusion.md` is never replaced by a remote fetch — use Update mode to refresh it explicitly.
 
@@ -202,6 +203,7 @@ If a claim is later overturned or weakened, update the row rather than silently 
 
 Each `conclusion.md` should state:
 
+- when it was last updated (month and year; update this whenever the verdict changes materially)
 - the question being answered
 - the current verdict
 - confidence
@@ -217,21 +219,25 @@ Treat `conclusion.md` as the main consumption surface. It should be a complete, 
 
 `<research-root>/_sources/remote-topics.md` is a project-local registry of research conclusions published in external repositories. It is the discoverability layer for remote research — add an entry here once, and consumer mode resolves it automatically on every subsequent lookup.
 
-Format:
+### When to populate
+
+Add a row when you encounter a URL to a remote `conclusion.md` that is relevant to this project — from a marketplace listing, an awesome-list, a team member, or found during research. Consumer mode prompts after fetching a remote conclusion; you can also add rows manually at any time.
+
+### Format
 
 ```markdown
 # Remote Research Topics
 
-| topic | url | valid_until | description |
-|-------|-----|-------------|-------------|
-| agent-runtime-landscape | https://raw.githubusercontent.com/org/repo/main/.research/agent-runtime-landscape/conclusion.md | 2026-01-01 | Survey of agent execution runtimes and their tradeoffs. |
+| topic | url | description |
+|-------|-----|-------------|
+| agent-runtime-landscape | https://raw.githubusercontent.com/org/repo/main/.research/agent-runtime-landscape/conclusion.md | Survey of agent execution runtimes and their tradeoffs. |
 ```
 
-Rules:
+### Rules
 
 - `topic` must match the directory slug used in `<research-root>/` so consumer mode can resolve it by name.
 - `url` must point directly to a `conclusion.md` file (raw, not a rendered page).
-- `valid_until` is required. Consumer mode warns when this date is past.
+- Freshness is read from the `## Last updated` field inside the fetched conclusion — the publisher sets it, not the registry row.
 - Pin to a specific git ref or tag in the URL when stability matters more than currency (e.g., `?ref=v2025-Q2`). Use the default branch when you want the latest.
 - Local research always wins. If `<research-root>/<topic>/conclusion.md` exists, it is used and the remote entry is ignored.
 - To add a remote topic: add a row to `_sources/remote-topics.md` and commit. No other wiring needed.

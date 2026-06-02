@@ -6,6 +6,7 @@ Each `conclusion.md` must be a complete, condensed verdict of the research and s
 
 Required sections:
 
+- last updated (month and year; updated whenever the verdict changes materially)
 - question
 - verdict
 - confidence

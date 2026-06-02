@@ -1,5 +1,9 @@
 # <Topic> Conclusion
 
+## Last updated
+
+<Month YYYY>
+
 ## Question
 
 <What question does this conclusion answer?>

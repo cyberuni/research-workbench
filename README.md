@@ -33,6 +33,15 @@ Research a topic and produce a post as a durable artifact — GitHub issue, GitH
 
 ## Install
 
+### Claude Code
+
+```bash
+claude plugin marketplace add cyberuni/marketplace
+claude plugin install research-workbench@cyberuni
+```
+
+### Other runtimes
+
 ```bash
 npx skills add cyberuni/research-workbench
 ```

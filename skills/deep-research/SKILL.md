@@ -201,17 +201,20 @@ If a claim is later overturned or weakened, update the row rather than silently 
 
 ## Conclusion Rules
 
-Each `conclusion.md` should state:
+Each `conclusion.md` should include these sections, in this order:
 
-- when it was last updated (month and year; update this whenever the verdict changes materially)
-- the question being answered
-- the current verdict
-- confidence
-- the strongest supporting evidence
-- the strongest weakening or contradictory evidence
-- what is not supported
-- where evidence is thin
-- what should be checked again later
+1. when it was last updated (month and year; update this whenever the verdict changes materially)
+2. the question being answered
+3. the current verdict
+4. **reference material** — any tables, diagrams, quick references, or "when to use" guides that make the verdict immediately actionable. Place here, before confidence and evidence. Omit if there is nothing to show.
+5. confidence
+6. the strongest supporting evidence
+7. the strongest weakening or contradictory evidence
+8. what is not supported
+9. where evidence is thin
+10. what should be checked again later
+
+Reference material comes before confidence and evidence so a reader hits the actionable content first. Confidence and evidence sections are for readers who want to validate or challenge the verdict — not the primary read path.
 
 Treat `conclusion.md` as the main consumption surface. It should be a complete, condensed verdict of the research rather than a teaser that forces the reader into other files.
 

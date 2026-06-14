@@ -13,7 +13,16 @@ Use the local repository as the durable research workspace.
 
 Default research root: `.research/`
 
-Override it per repository by adding a line like `research_root: research` to `SKILL.local.md`.
+**Research root resolution order (highest wins):**
+
+1. **Prompt** — if the prompt contains `research root: <path>` or `--root <path>` or ends with `in <path>` (where `<path>` looks like a directory), use that path for this invocation only.
+2. **SKILL.local.md** — a line `research_root: <path>` sets the project-wide default.
+3. **Built-in default** — `.research/`
+
+Examples of prompt-level override:
+- `deep research on TypeScript decorators, research root: docs/research`
+- `deep research on X --root ./team-research`
+- `deep research on Y in research/`
 
 ## When to use
 

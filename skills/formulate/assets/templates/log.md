@@ -11,7 +11,7 @@ One paragraph: what this topic is and what is being decided.
 
 ## Learned
 
-- **[L1]** <fact> — <how it was established>
+- **[L1]** <fact> — <how it was established, or the research conclusion path>
 
 ## Rejected — do not re-derive
 
@@ -21,7 +21,7 @@ One paragraph: what this topic is and what is being decided.
 ## Open
 
 - **[Q1]** <question> — <what breaks if it resolves badly>
-  `blocks:` <ids, or omit>
+  `blocks:` <ids, or omit> · `research:` <topic slug, or omit>
 
 ## Next
 

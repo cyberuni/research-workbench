@@ -33,7 +33,7 @@ Research a topic and produce a post as a durable artifact — GitHub issue, GitH
 
 ### `formulate`
 
-Capture a design or research session as a durable log of decisions, open questions, and next steps. Where `deep-research` turns sources into a conclusion, `formulate` turns an argument into a record — including every proposal that was argued down and the specific reason it failed, so the same ground is not re-derived.
+Work a subject out with the user and keep it: engage on the topic, split tangled discussions into one workspace per decision, send fact-shaped questions to `deep-research`, and track each topic's decisions, open questions, and next actions. Where `deep-research` turns sources into a conclusion, `formulate` turns an argument into a record — including every proposal that was argued down and the specific reason it failed, so the same ground is not re-derived.
 
 See [`skills/formulate/README.md`](skills/formulate/README.md) for full details.
 

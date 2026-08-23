@@ -4,7 +4,7 @@ An agent plugin that ships durable research workflows and community post authori
 
 ## What this is
 
-`research-workbench` is a public agent plugin. It ships two skills — `deep-research` and `community-post` — that work across Claude Code, Codex, Cursor, and other agent runtimes that support the plugin format.
+`research-workbench` is a public agent plugin. It ships three skills — `deep-research`, `community-post`, and `formulate` — that work across Claude Code, Codex, Cursor, and other agent runtimes that support the plugin format.
 
 Skills work in draft mode by default: results are shown inline and nothing is written to disk unless you confirm. When saved, research artifacts land in `.research/` in the consuming repo.
 
@@ -31,6 +31,12 @@ See [`skills/deep-research/README.md`](skills/deep-research/README.md) for full 
 
 Research a topic and produce a post as a durable artifact — GitHub issue, GitHub discussion, Discord message, Reddit/X post, or Asana task. Runs `deep-research` first (or reads existing research), then drafts and files the post.
 
+### `formulate`
+
+Capture a design or research session as a durable log of decisions, open questions, and next steps. Where `deep-research` turns sources into a conclusion, `formulate` turns an argument into a record — including every proposal that was argued down and the specific reason it failed, so the same ground is not re-derived.
+
+See [`skills/formulate/README.md`](skills/formulate/README.md) for full details.
+
 ## Install
 
 ### Claude Code
@@ -52,11 +58,11 @@ Skills are invoked by name in each runtime:
 
 | Runtime | Invocation |
 |---|---|
-| Claude Code | `/deep-research` · `/community-post` (plugin shown parenthetically) |
-| Codex CLI | `$deep-research` · `$community-post` |
-| Cursor | `/deep-research` · `/community-post` |
-| GitHub Copilot | `/deep-research` · `/community-post` |
-| Windsurf | `@deep-research` · `@community-post` |
+| Claude Code | `/deep-research` · `/community-post` · `/formulate` (plugin shown parenthetically) |
+| Codex CLI | `$deep-research` · `$community-post` · `$formulate` |
+| Cursor | `/deep-research` · `/community-post` · `/formulate` |
+| GitHub Copilot | `/deep-research` · `/community-post` · `/formulate` |
+| Windsurf | `@deep-research` · `@community-post` · `@formulate` |
 
 ## Research artifact layout
 
@@ -65,14 +71,18 @@ When research is saved, artifacts land under `.research/` in the consuming repo:
 ```text
 .research/
   _sources/          # durable source registries
-  <topic-slug>/
+  <topic-slug>/            # a research topic
     topic.md         # working investigation record
     conclusion.md    # current best consumable answer
     evidence.md      # structured claims and confidence
     changes.md       # update history
+  <topic-slug>/            # a design log (peer, not a kind)
+    topic.md         # the question being decided
+    log.md           # settled, learned, rejected, open, next
+    changes.md       # update history
 ```
 
-`conclusion.md` is the primary consumption surface — read it first before falling back to other files.
+`conclusion.md` is the primary consumption surface for a research topic — read it first before falling back to other files. A design log has no `conclusion.md`: what it records is what was rejected as much as what was concluded, so `log.md` is its consumption surface.
 
 ## Plugin manifests
 

@@ -22,8 +22,9 @@ Keep the distinction clear:
 - `skills/deep-research/assets/templates/` contains reusable topic file templates
 - `skills/deep-research/scripts/` contains helper scripts
 - `skills/community-post/SKILL.md` contains the community-post skill
+- `skills/formulate/` contains the formulate skill, its log templates, and `scripts/new-log.sh`
 - `.research/_sources/` contains long-lived source registries
-- `.research/<topic-slug>/` contains one topic's research workspace: investigation, conclusion, evidence, and change history
+- `.research/<topic-slug>/` contains one topic workspace. A research topic holds investigation, conclusion, evidence, and change history; a design log holds the question, the log, and change history, and deliberately no conclusion
 
 ## Authoring Rules
 

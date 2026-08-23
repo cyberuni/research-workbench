@@ -7,7 +7,7 @@ This directory stores durable research artifacts in the repository.
 | Path | Purpose |
 | --- | --- |
 | `_sources/` | Long-lived source registries and watchlists shared across topics |
-| `<topic-slug>/` | One topic workspace with investigation, conclusion, evidence, and changes |
+| `<topic-slug>/` | One topic workspace. A research topic holds investigation, conclusion, evidence, and changes; a design log holds the question, the log, and changes |
 
 ## Workflow
 

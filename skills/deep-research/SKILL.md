@@ -62,7 +62,7 @@ In **Draft mode**:
 2. Present the conclusion and open questions inline in the response.
 3. Iterate: ask the user if they have feedback, corrections, or want open questions explored further.
 4. When the result is good, ask: "Want me to save this research to `.research/<topic-slug>/`?"
-5. On confirmation, copy artifacts from temp to `<research-root>/` and commit.
+5. On confirmation, copy artifacts from temp to `<research-root>/`, add the topic's row to the `## Index` in `<research-root>/README.md`, and commit.
 
 In **Update mode**:
 1. Read existing artifacts from `<research-root>/<topic-slug>/`.
@@ -70,12 +70,13 @@ In **Update mode**:
 3. Present what is new or changed inline. Highlight contradictions or confidence shifts.
 4. Iterate with the user on any open questions.
 5. When the result is good, ask: "Want me to write these updates back to `.research/<topic-slug>/`?"
-6. On confirmation, update the artifacts in place and append to `changes.md`, then commit.
+6. On confirmation, update the artifacts in place, append to `changes.md`, update the `## Index` row if the question changed, then commit.
 
 ## Storage Model
 
 Use these locations:
 
+- `<research-root>/README.md` for the `## Index` of topics
 - `<research-root>/_sources/` for durable source registries and watchlists
 - `<research-root>/_sources/remote-topics.md` for a registry of remote research topics available to fetch
 - `<skill-dir>/assets/templates/` for reusable topic file templates
@@ -97,7 +98,7 @@ Do not collapse all research into one file.
 5. Ask the user for feedback or whether to dig into open questions.
 6. Repeat until the user is satisfied.
 7. Ask: "Want me to save this research to `.research/<topic-slug>/`?"
-8. On yes: copy artifacts to `<research-root>/` and commit.
+8. On yes: copy artifacts to `<research-root>/`, add the topic's row to the `## Index` in `<research-root>/README.md`, and commit.
 
 ### Update mode workflow
 
@@ -108,7 +109,7 @@ Do not collapse all research into one file.
 5. Ask the user for feedback or whether to explore any new open questions.
 6. Repeat until the user is satisfied.
 7. Ask: "Want me to write these updates back to `.research/<topic-slug>/`?"
-8. On yes: update artifacts in place, append a dated entry to `changes.md`, and commit.
+8. On yes: update artifacts in place, append a dated entry to `changes.md`, update the `## Index` row if the question changed, and commit.
 
 ### Consumer mode workflow
 
@@ -131,6 +132,7 @@ Local research always takes precedence over remote. A local `conclusion.md` is n
 5. Capture contradictions, weak evidence, and open questions explicitly.
 6. Write or refresh `<research-root>/<topic-slug>/conclusion.md` when the findings are stable enough to summarize.
 7. Append material changes to `<research-root>/<topic-slug>/changes.md`.
+8. Add or update the topic's row in the `## Index` table of `<research-root>/README.md` (see `governances/research-layout.md`).
 
 Load shared contracts from the skill directory:
 

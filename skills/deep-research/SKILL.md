@@ -35,6 +35,11 @@ Signs the full workbench is warranted:
 - structured notes that can be reviewed in git
 - a conclusion that can later support design, policy, or implementation decisions
 
+## Boundaries
+
+- Research only. Do not implement what the research recommends, and do not write ADRs, governances, or other decision records from it. Surface the verdict and leave the decision to the user.
+- The topic workspace is the record. Do not keep findings only in agent memory or conversation; in Draft mode they live in the temp workspace until the user chooses to save them.
+
 ## Modes
 
 - **Draft mode** (default): research in a temp folder, present results inline, iterate with user, offer to save when satisfied.

@@ -140,6 +140,7 @@ Load shared contracts from the skill directory:
 - Prefer primary sources when available.
 - Prefer practical evidence over theory: incidents, benchmarks, production reports, issue threads, spec decisions, and builder write-ups outrank documentation intros and opinion without data. See `governances/research-evidence.md` for the weighting.
 - Use multiple independent source angles for important claims. Start with 2–3, stop when 3–4 agree, keep going while they conflict, and say so when findings stay thin. See `governances/research-method.md`.
+- For broad questions, delegate one subagent per angle when the runtime supports it; keep synthesis and `conclusion.md` yourself.
 - Distinguish source type: official docs, maintainers, research groups, foundations, code, issue threads, discussions, benchmarks, postmortems.
 - Mark uncertain or conflicting claims instead of smoothing them over.
 

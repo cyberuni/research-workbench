@@ -137,6 +137,7 @@ Load shared contracts from the skill directory:
 ## Source Rules
 
 - Prefer primary sources when available.
+- Prefer practical evidence over theory: incidents, benchmarks, production reports, issue threads, spec decisions, and builder write-ups outrank documentation intros and opinion without data. See `governances/research-evidence.md` for the weighting.
 - Use multiple independent source angles for important claims.
 - Distinguish source type: official docs, maintainers, research groups, foundations, code, issue threads, discussions, benchmarks, postmortems.
 - Mark uncertain or conflicting claims instead of smoothing them over.

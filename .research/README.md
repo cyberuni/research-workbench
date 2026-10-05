@@ -28,3 +28,11 @@ This directory stores durable research artifacts in the repository.
     evidence.md
     changes.md
 ```
+
+## Index
+
+| Topic | Question |
+| --- | --- |
+| [great-research-agent-extensions](great-research-agent-extensions/conclusion.md) | What makes a strong research-oriented agent extension or skill package for Claude, Cursor, Codex, or similar agent runtimes? |
+| [single-vs-multiple-skills](single-vs-multiple-skills/conclusion.md) | When should a capability be one skill versus several (consume, review, update, start)? |
+| [skill-namespacing-across-agent-runtimes](skill-namespacing-across-agent-runtimes/conclusion.md) | When a human explicitly invokes a skill, what syntax do they type, and does it change for plugin vs. standalone skills? |

@@ -36,7 +36,7 @@ ls <research-root>/ 2>/dev/null
 
 Read the header and `## Open` of any workspace whose slug is close to the subject. Resume rather than restart: an existing settled entry is not up for re-argument unless this session produces a claim that overturns it.
 
-The research root honors `RESEARCH_ROOT` and a `research_root:` value in `SKILL.local.md`; default `.research/`.
+The research root resolves as in the `deep-research` skill: a prompt-level override, then `RESEARCH_ROOT`, then `research_root:` in `SKILL.local.md`, default `.research/`.
 
 ### 3. Segregate the topics
 

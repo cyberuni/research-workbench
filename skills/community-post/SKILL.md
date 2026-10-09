@@ -14,10 +14,10 @@ When you have something to say — a finding, proposal, question, or update — 
 This skill operates in three modes depending on what research exists:
 
 - **New** — no prior research exists. Run the `deep-research` skill first (durable mode), then draft the post from the resulting artifacts.
-- **Existing** — research already lives in `.research/<topic-slug>/`. Read `conclusion.md` and `evidence.md` directly; skip to step 4.
+- **Existing** — research already lives in `<research-root>/<topic-slug>/`. Read `conclusion.md` and `evidence.md` directly; skip to step 4.
 - **Follow-up** — a post has already been filed and new research updates exist. Run the `deep-research` skill in update mode, then draft a follow-up post referencing the original issue URL.
 
-Choose the mode by checking whether `.research/<topic-slug>/` exists and whether a prior issue URL is recorded in `conclusion.md`.
+Choose the mode by checking whether `<research-root>/<topic-slug>/` exists and whether a prior issue URL is recorded in `conclusion.md`.
 
 ## Steps
 
@@ -60,9 +60,9 @@ Separate what you found into two groups:
 
 ### 4. Save research with the deep-research workbench
 
-Do not create a `docs/research/YYYY-MM-<topic>.md` file. Instead:
+Do not create a `docs/research/YYYY-MM-<topic>.md` file, even if another skill (such as `community-proposal`) says to; this step replaces it. `<research-root>` is resolved as in the `deep-research` skill (default `.research/`). Instead:
 
-1. Use the `deep-research` skill to produce or update the topic workspace at `.research/<topic-slug>/`.
+1. Use the `deep-research` skill to produce or update the topic workspace at `<research-root>/<topic-slug>/`.
 2. The research must capture, at minimum:
    - Author handles (`@username`) for every prior-art reference found in steps 2–3
    - Community position table (agreements vs. counterarguments)

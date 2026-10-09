@@ -16,8 +16,9 @@ Default research root: `.research/`
 **Research root resolution order (highest wins):**
 
 1. **Prompt** — if the prompt contains `research root: <path>` or `--root <path>` or ends with `in <path>` (where `<path>` looks like a directory), use that path for this invocation only.
-2. **SKILL.local.md** — a line `research_root: <path>` sets the project-wide default.
-3. **Built-in default** — `.research/`
+2. **`RESEARCH_ROOT` env var** — shared with the `formulate` skill and its `new-log.sh`.
+3. **SKILL.local.md** — a line `research_root: <path>` sets the project-wide default.
+4. **Built-in default** — `.research/`
 
 Examples of prompt-level override:
 - `deep research on TypeScript decorators, research root: docs/research`
@@ -61,7 +62,7 @@ In **Draft mode**:
 1. Use a system temp directory (e.g., `/tmp/research-<topic-slug>/`) for all artifacts.
 2. Present the conclusion and open questions inline in the response.
 3. Iterate: ask the user if they have feedback, corrections, or want open questions explored further.
-4. When the result is good, ask: "Want me to save this research to `.research/<topic-slug>/`?"
+4. When the result is good, ask: "Want me to save this research to `<research-root>/<topic-slug>/`?"
 5. On confirmation, copy artifacts from temp to `<research-root>/`, add the topic's row to the `## Index` in `<research-root>/README.md`, and commit.
 
 In **Update mode**:
@@ -69,7 +70,7 @@ In **Update mode**:
 2. Re-investigate: look for new sources, changed information, or claims that now contradict the prior conclusion.
 3. Present what is new or changed inline. Highlight contradictions or confidence shifts.
 4. Iterate with the user on any open questions.
-5. When the result is good, ask: "Want me to write these updates back to `.research/<topic-slug>/`?"
+5. When the result is good, ask: "Want me to write these updates back to `<research-root>/<topic-slug>/`?"
 6. On confirmation, update the artifacts in place, append to `changes.md`, update the `## Index` row if the question changed, then commit.
 
 ## Storage Model
@@ -97,7 +98,7 @@ Do not collapse all research into one file.
 4. Present the conclusion inline. List any open questions and contradictions.
 5. Ask the user for feedback or whether to dig into open questions.
 6. Repeat until the user is satisfied.
-7. Ask: "Want me to save this research to `.research/<topic-slug>/`?"
+7. Ask: "Want me to save this research to `<research-root>/<topic-slug>/`?"
 8. On yes: copy artifacts to `<research-root>/`, add the topic's row to the `## Index` in `<research-root>/README.md`, and commit.
 
 ### Update mode workflow
@@ -108,7 +109,7 @@ Do not collapse all research into one file.
 4. Present a diff-style summary inline: what is confirmed, what is new, what now contradicts prior findings.
 5. Ask the user for feedback or whether to explore any new open questions.
 6. Repeat until the user is satisfied.
-7. Ask: "Want me to write these updates back to `.research/<topic-slug>/`?"
+7. Ask: "Want me to write these updates back to `<research-root>/<topic-slug>/`?"
 8. On yes: update artifacts in place, append a dated entry to `changes.md`, update the `## Index` row if the question changed, and commit.
 
 ### Consumer mode workflow
@@ -117,7 +118,7 @@ Do not collapse all research into one file.
 2. If found, read it. Read `topic.md`, `evidence.md`, or `changes.md` only if the conclusion is insufficient, contested, or stale.
 3. If **not found locally**, check `<research-root>/_sources/remote-topics.md` for a matching topic slug or description.
 4. If a remote entry exists, fetch the URL. Check the `## Last updated` field in the fetched conclusion; if present and more than six months old, warn the user before presenting the content. If absent, skip the age check.
-5. Present the fetched conclusion. Offer to save it locally: "Want me to save this to `.research/<topic-slug>/conclusion.md`?"
+5. Present the fetched conclusion. Offer to save it locally: "Want me to save this to `<research-root>/<topic-slug>/conclusion.md`?"
 6. On yes: write the file and commit.
 7. After presenting any remote conclusion, offer to register it: "Want me to add this to `_sources/remote-topics.md` so it is found automatically next time?"
 

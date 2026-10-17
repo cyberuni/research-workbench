@@ -42,8 +42,8 @@ See [`skills/formulate/README.md`](skills/formulate/README.md) for full details.
 ### Claude Code
 
 ```bash
-claude plugin marketplace add cyberuni/marketplace
-claude plugin install research-workbench@cyberuni
+claude plugin marketplace add cyberuni/cyberplace
+claude plugin install research-workbench@cyberplace
 ```
 
 ### Other runtimes

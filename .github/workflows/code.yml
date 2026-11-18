@@ -1,0 +1,25 @@
+name: code
+on:
+  workflow_call:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      # Runs `plugin build --check` (stale vendor manifests, catalogs, forwarders)
+      # and `publish check-version` (version drift) through the pinned universal-plugin.
+      - run: npm run verify
+
+  all-checks:
+    if: always()
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          if [[ "${{ needs.verify.result }}" != "success" ]]; then
+            exit 1
+          fi

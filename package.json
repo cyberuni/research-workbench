@@ -1,0 +1,10 @@
+{
+  "name": "research-workbench",
+  "version": "1.2.1",
+  "private": true,
+  "scripts": {
+    "build": "npx -y universal-plugin@0.22.0 plugin build",
+    "check": "npx -y universal-plugin@0.22.0 plugin build --check",
+    "check-version": "npx -y universal-plugin@0.22.0 publish check-version"
+  }
+}

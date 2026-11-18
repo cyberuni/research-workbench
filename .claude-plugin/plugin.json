@@ -1,10 +1,11 @@
 {
   "name": "research-workbench",
-  "description": "Durable research workflows and community post authoring for AI coding agents.",
   "version": "1.2.1",
+  "description": "Durable research workflows and community post authoring for AI coding agents.",
   "author": {
     "name": "unional"
   },
   "homepage": "https://github.com/cyberuni/research-workbench",
-  "license": "MIT"
+  "license": "MIT",
+  "skills": "skills/"
 }

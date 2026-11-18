@@ -1,0 +1,19 @@
+{
+  "name": "cyberuni-research-workbench-local",
+  "owner": {
+    "name": "cyberuni"
+  },
+  "metadata": {
+    "displayName": "cyberuni-research-workbench-local"
+  },
+  "plugins": [
+    {
+      "name": "research-workbench",
+      "source": "./",
+      "description": "Durable research workflows and community post authoring for AI coding agents.",
+      "version": "1.2.1",
+      "homepage": "https://github.com/cyberuni/research-workbench",
+      "license": "MIT"
+    }
+  ]
+}

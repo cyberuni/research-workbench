@@ -1,0 +1,10 @@
+name: pull-request
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  # Called as `code` so the gate reports as `code / all-checks`, the context
+  # the branch ruleset requires.
+  code:
+    uses: ./.github/workflows/code.yml

@@ -11,7 +11,7 @@
 	"extensions": {
 		"org.cyberuni.universal-plugin": {
 			"vendors": ["claude-code", "cursor", "codex", "copilot-cli"],
-			"skills": "skills/"
+			"skills": "./skills/"
 		}
 	}
 }
